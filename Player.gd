@@ -7,6 +7,8 @@ var weapon_select = 1
 var bullet = preload("res://Bullet.tscn")
 var bullet2 = preload("res://Bullet2.tscn")
 
+var health = 50
+
 var bullet_instance
 var bullet_instance2
 
@@ -45,7 +47,7 @@ func fire():
 		bullet_instance.rotation_degrees = rotation_degrees
 		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 		get_tree().get_root().call_deferred("add_child", bullet_instance)
-		yield(get_tree().create_timer(6.0), "timeout")
+		yield(get_tree().create_timer(2.0), "timeout")
 		get_tree().get_root().call_deferred("remove_child", bullet_instance)
 	if weapon_select == 2:
 		bullet_speed = 1000
@@ -54,7 +56,7 @@ func fire():
 		bullet_instance2.rotation_degrees = rotation_degrees
 		bullet_instance2.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 		get_tree().get_root().call_deferred("add_child", bullet_instance2)
-		yield(get_tree().create_timer(6.0), "timeout")
+		yield(get_tree().create_timer(2.0), "timeout")
 		get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
 
@@ -63,4 +65,20 @@ func kill():
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		kill()
+		if health < 0:
+			kill()
+		else:
+			modulate.a = 0.5
+			yield(get_tree().create_timer(0.3), "timeout")
+			modulate.a = 1
+			yield(get_tree().create_timer(0.3), "timeout")
+			modulate.a = 0.5
+			yield(get_tree().create_timer(0.3), "timeout")
+			modulate.a = 1
+			yield(get_tree().create_timer(0.3), "timeout")
+			modulate.a = 0.5
+			yield(get_tree().create_timer(0.3), "timeout")
+			modulate.a = 1
+			health = health - 10
+
+# ADD A HEALTH BAR SYSTEM!!!!!!!!!!!!!!!!!!!!

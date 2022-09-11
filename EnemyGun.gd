@@ -8,6 +8,7 @@ var bulletAttack = preload("res://EnemyGunStuff.tscn")
 
 func _ready():
 	set_physics_process(true)
+	
 
 
 func _physics_process(delta):
@@ -40,5 +41,5 @@ func _on_PlayerDetectArea_body_exited(body):
 		attack_instance.rotation_degrees = rotation_degrees
 		attack_instance.apply_impulse(Vector2(), Vector2(bulletSpeed, 0).rotated(rotation))
 		get_tree().get_root().call_deferred("add_child", attack_instance)
-		yield(get_tree().create_timer(3.0), "timeout")
+		yield(get_tree().create_timer(2.0), "timeout")
 		get_tree().get_root().call_deferred("remove_child", attack_instance)
