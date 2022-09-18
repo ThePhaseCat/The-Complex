@@ -12,8 +12,10 @@ anchor_bottom = 1.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 physics_interpolation_mode = 1
-margin_right = 1022.0
-margin_bottom = 163.0
+margin_left = 30.0
+margin_top = 31.0
+margin_right = 168.0
+margin_bottom = 53.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 max_value = 50.0

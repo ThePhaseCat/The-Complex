@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal set_health(health_max)
+signal new_health(new_health)
 
 var movespeed = 200
 var bullet_speed = 1000
@@ -15,7 +17,7 @@ var bullet_instance2
 var parent_rotation 
 
 func _ready():
-	pass # Replace with function body.
+	emit_signal("set_health", health)
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -31,7 +33,7 @@ func _physics_process(delta):
 	
 	motion = motion.normalized()
 	motion = move_and_slide(motion * movespeed)
-	#look_at(get_global_mouse_position())
+	look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
@@ -41,7 +43,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("LMB"):
 		fire()
 	
-	$HealthBar/ProgressBar.value = health
 
 func fire():
 	if weapon_select == 1:
@@ -67,22 +68,25 @@ func fire():
 func kill():
 	get_tree().reload_current_scene()
 
+func health_change():
+	health = health - 10
+	emit_signal("new_health", health)
+
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
 		if health <= 0:
 			kill()
 		else:
+			health_change()
 			modulate.a = 0.5
-			yield(get_tree().create_timer(0.3), "timeout")
+			yield(get_tree().create_timer(0.1), "timeout")
 			modulate.a = 1
-			yield(get_tree().create_timer(0.3), "timeout")
+			yield(get_tree().create_timer(0.1), "timeout")
 			modulate.a = 0.5
-			yield(get_tree().create_timer(0.3), "timeout")
+			yield(get_tree().create_timer(0.1), "timeout")
 			modulate.a = 1
-			yield(get_tree().create_timer(0.3), "timeout")
+			yield(get_tree().create_timer(0.1), "timeout")
 			modulate.a = 0.5
-			yield(get_tree().create_timer(0.3), "timeout")
+			yield(get_tree().create_timer(0.1), "timeout")
 			modulate.a = 1
-			health = health - 10
-			
 
