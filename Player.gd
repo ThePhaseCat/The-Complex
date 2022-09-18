@@ -12,6 +12,8 @@ var health = 50
 var bullet_instance
 var bullet_instance2
 
+var parent_rotation 
+
 func _ready():
 	pass # Replace with function body.
 
@@ -26,10 +28,10 @@ func _physics_process(delta):
 		motion.x -= 1
 	if Input.is_action_pressed("right"):
 		motion.x += 1
-		
+	
 	motion = motion.normalized()
 	motion = move_and_slide(motion * movespeed)
-	look_at(get_global_mouse_position())
+	#look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
@@ -38,6 +40,8 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("LMB"):
 		fire()
+	
+	$HealthBar/ProgressBar.value = health
 
 func fire():
 	if weapon_select == 1:
@@ -65,7 +69,7 @@ func kill():
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		if health < 0:
+		if health <= 0:
 			kill()
 		else:
 			modulate.a = 0.5
@@ -80,5 +84,5 @@ func _on_Area2D_body_entered(body):
 			yield(get_tree().create_timer(0.3), "timeout")
 			modulate.a = 1
 			health = health - 10
+			
 
-# ADD A HEALTH BAR SYSTEM!!!!!!!!!!!!!!!!!!!!
