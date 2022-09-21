@@ -52,7 +52,7 @@ func fire():
 		bullet_instance.rotation_degrees = rotation_degrees
 		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 		get_tree().get_root().call_deferred("add_child", bullet_instance)
-		yield(get_tree().create_timer(2.0), "timeout")
+		yield(get_tree().create_timer(1.0), "timeout")
 		get_tree().get_root().call_deferred("remove_child", bullet_instance)
 	if weapon_select == 2:
 		bullet_speed = 1000
@@ -61,7 +61,7 @@ func fire():
 		bullet_instance2.rotation_degrees = rotation_degrees
 		bullet_instance2.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 		get_tree().get_root().call_deferred("add_child", bullet_instance2)
-		yield(get_tree().create_timer(2.0), "timeout")
+		yield(get_tree().create_timer(1.0), "timeout")
 		get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
 
@@ -74,19 +74,29 @@ func health_change():
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
+		if "EnemyGun" in body.name:
+			if health <= 0:
+				kill()
+			else:
+				health = health - 50
+				hit_flash()
 		if health <= 0:
 			kill()
 		else:
 			health_change()
-			modulate.a = 0.5
-			yield(get_tree().create_timer(0.1), "timeout")
-			modulate.a = 1
-			yield(get_tree().create_timer(0.1), "timeout")
-			modulate.a = 0.5
-			yield(get_tree().create_timer(0.1), "timeout")
-			modulate.a = 1
-			yield(get_tree().create_timer(0.1), "timeout")
-			modulate.a = 0.5
-			yield(get_tree().create_timer(0.1), "timeout")
-			modulate.a = 1
+			hit_flash()
+			
+
+func hit_flash():
+	$Sprite.self_modulate = Color(255, 0, 0)
+	yield(get_tree().create_timer(0.3), "timeout")
+	$Sprite.self_modulate = Color(255, 255, 255)
+	yield(get_tree().create_timer(0.1), "timeout")
+	$Sprite.self_modulate = Color(255, 0, 0)
+	yield(get_tree().create_timer(0.3), "timeout")
+	$Sprite.self_modulate = Color(255, 255, 255)
+	yield(get_tree().create_timer(0.3), "timeout")
+	$Sprite.self_modulate = Color(255, 0, 0)
+	yield(get_tree().create_timer(0.3), "timeout")
+	$Sprite.self_modulate = Color(255, 255, 255)
 
