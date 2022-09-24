@@ -5,7 +5,7 @@ var health = 75
 
 var speed = 2.5
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -17,12 +17,16 @@ func _physics_process(delta):
 	motion = motion.normalized() * speed
 	move_and_collide(motion)
 
+
+func health_change():
+	health = health - 10
+
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
 		if health <= 0:
 			queue_free()
 		else:
-			health = health - 25
+			health_change()
 			speed = 0
 			yield(get_tree().create_timer(0.5), "timeout")
 			speed = 2.5

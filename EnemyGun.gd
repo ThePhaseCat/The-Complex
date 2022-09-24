@@ -36,7 +36,7 @@ func fire():
 	attack_instance.rotation_degrees = rotation_degrees
 	attack_instance.apply_impulse(Vector2(), Vector2(bulletSpeed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", attack_instance)
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(get_tree().create_timer(0.3), "timeout")
 	get_tree().get_root().call_deferred("remove_child", attack_instance)
 
 func _on_Area2D_body_entered(body):
