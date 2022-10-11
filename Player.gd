@@ -17,6 +17,8 @@ var bullet_instance2
 var parent_rotation 
 
 func _ready():
+	$gun1.show()
+	$gun2.hide()
 	emit_signal("set_health", health)
 
 func _physics_process(delta):
@@ -37,8 +39,12 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
+		$gun2.hide()
+		$gun1.show()
 	if Input.is_action_just_pressed("weapon 2"):
 		weapon_select = 2
+		$gun2.show()
+		$gun1.hide()
 
 	if Input.is_action_just_pressed("LMB"):
 		fire()

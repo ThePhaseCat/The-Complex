@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://spotlight.png" type="Texture" id=2]
 [ext_resource path="res://Player.png" type="Texture" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gun/gun1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gun/gun2.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -36,6 +38,14 @@ color = Color( 0.0980392, 0.231373, 0.584314, 1 )
 shadow_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="gun2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 25, 5.99998 )
+scale = Vector2( 0.0450693, 0.0450693 )
+
+[node name="gun1" parent="." instance=ExtResource( 6 )]
+position = Vector2( 32, 10 )
+scale = Vector2( 0.0503049, 0.0503049 )
 
 [connection signal="new_health" from="." to="HUD" method="_on_Player_new_health"]
 [connection signal="set_health" from="." to="HUD" method="_on_Player_set_health"]
