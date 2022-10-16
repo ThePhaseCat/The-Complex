@@ -37,6 +37,10 @@ func _physics_process(delta):
 	motion = move_and_slide(motion * movespeed)
 	look_at(get_global_mouse_position())
 	
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+	
+	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
 		$gun2.hide()
