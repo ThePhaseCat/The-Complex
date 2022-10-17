@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://HealthBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://hud/FPS Counter.gd" type="Script" id=3]
+[ext_resource path="res://mainmenu/pause/PauseMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mainmenu/deathscreen/DeathScreen.tscn" type="PackedScene" id=5]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -18,3 +20,9 @@ align = 3
 valign = 3
 uppercase = true
 script = ExtResource( 3 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 4 )]
+
+[node name="DeathScreen" parent="." instance=ExtResource( 5 )]
+
+[connection signal="dieScreen" from="." to="DeathScreen" method="_on_HUD_dieScreen"]

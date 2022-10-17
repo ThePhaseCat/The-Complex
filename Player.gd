@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal set_health(health_max)
 signal new_health(new_health)
+signal died()
 
 var movespeed = 200
 var bullet_speed = 1000
@@ -37,10 +38,6 @@ func _physics_process(delta):
 	motion = move_and_slide(motion * movespeed)
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = true
-	
-	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
 		$gun2.hide()
@@ -51,32 +48,35 @@ func _physics_process(delta):
 		$gun1.hide()
 
 	if Input.is_action_just_pressed("LMB"):
-		fire()
+		if weapon_select == 1:
+			fire()
+		if weapon_select == 2:
+			fire2()
 	
 
 func fire():
-	if weapon_select == 1:
-		bullet_speed = 500
-		var bullet_instance = bullet.instance()
-		bullet_instance.position = get_global_position()
-		bullet_instance.rotation_degrees = rotation_degrees
-		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
-		get_tree().get_root().call_deferred("add_child", bullet_instance)
-		yield(get_tree().create_timer(1.0), "timeout")
-		get_tree().get_root().call_deferred("remove_child", bullet_instance)
-	if weapon_select == 2:
-		bullet_speed = 1000
-		var bullet_instance2 = bullet2.instance()
-		bullet_instance2.position = get_global_position()
-		bullet_instance2.rotation_degrees = rotation_degrees
-		bullet_instance2.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
-		get_tree().get_root().call_deferred("add_child", bullet_instance2)
-		yield(get_tree().create_timer(1.0), "timeout")
-		get_tree().get_root().call_deferred("remove_child", bullet_instance2)
+	bullet_speed = 500
+	var bullet_instance = bullet.instance()
+	bullet_instance.position = get_global_position()
+	bullet_instance.rotation_degrees = rotation_degrees
+	bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
+	get_tree().get_root().call_deferred("add_child", bullet_instance)
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().get_root().call_deferred("remove_child", bullet_instance)
 
+func fire2():
+	bullet_speed = 1000
+	var bullet_instance2 = bullet2.instance()
+	bullet_instance2.position = get_global_position()
+	bullet_instance2.rotation_degrees = rotation_degrees
+	bullet_instance2.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
+	get_tree().get_root().call_deferred("add_child", bullet_instance2)
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
 func kill():
-	get_tree().reload_current_scene()
+	emit_signal("died")
+	#get_tree().reload_current_scene()
 
 func health_change():
 	health = health - 10

@@ -9,12 +9,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/StartButton.grab_focus()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	GlobalSettings.toggle_borderless(Save.game_data.borderless) 
+	GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen)
+	GlobalSettings.toggle_vsync(Save.game_data.vsync) 
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://world.tscn")

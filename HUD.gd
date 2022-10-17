@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal dieScreen()
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,3 +17,7 @@ func _on_Player_set_health(health_max):
 
 func _on_Player_new_health(new_health):
 	$HealthBar/ProgressBar.value = new_health
+
+
+func _on_Player_died():
+	emit_signal("dieScreen")
