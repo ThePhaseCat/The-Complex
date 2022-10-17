@@ -5,11 +5,14 @@ onready var fullscreen = $VBoxContainer/FullScreenButton
 onready var borderless = $VBoxContainer/BorderlessButton
 onready var vsync = $VBoxContainer/VSYNCButton
 onready var display_fps = $VBoxContainer/FPSViewButton
+onready var fps_cap = $VBoxContainer/fps_Slider
 
 func _ready():
 	fullscreen.pressed = Save.game_data.fullscreen
 	vsync.pressed =  Save.game_data.vsync
 	borderless.pressed = Save.game_data.borderless
+	display_fps.pressed = Save.game_data.display_fps
+	fps_cap.value = Save.game_data.fps_cap
 
 
 
@@ -30,4 +33,9 @@ func _on_VSYNCButton_toggled(button_pressed):
 
 
 func _on_FPSViewButton_toggled(button_pressed):
-	pass # Replace with function body.
+	GlobalSettings.toggle_FPS(button_pressed)
+
+
+func _on_fps_Slider_value_changed(value):
+	GlobalSettings.fps_cap(value)
+	$"fps value".set_text("FPS: " + String(value))

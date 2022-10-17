@@ -12,6 +12,8 @@ func _ready():
 	GlobalSettings.toggle_borderless(Save.game_data.borderless) 
 	GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen)
 	GlobalSettings.toggle_vsync(Save.game_data.vsync) 
+	GlobalSettings.toggle_FPS(Save.game_data.display_fps)
+	GlobalSettings.fps_cap(Save.game_data.fps_cap)
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://world.tscn")
