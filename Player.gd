@@ -75,6 +75,8 @@ func fire2():
 	get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
 func kill():
+	$scaleAni.play("scale")
+	yield(get_tree().create_timer(1.0), "timeout")
 	emit_signal("died")
 	#get_tree().reload_current_scene()
 
