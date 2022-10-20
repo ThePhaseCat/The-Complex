@@ -4,6 +4,9 @@ signal set_health(health_max)
 signal new_health(new_health)
 signal died()
 
+signal startTimer()
+signal stopTimer()
+
 var movespeed = 200
 var bullet_speed = 1000
 var weapon_select = 1
@@ -18,6 +21,8 @@ var bullet_instance2
 var parent_rotation 
 
 func _ready():
+	set_physics_process(true)
+	emit_signal("startTimer")
 	$gun1.show()
 	$gun2.hide()
 	emit_signal("set_health", health)
@@ -75,6 +80,8 @@ func fire2():
 	get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
 func kill():
+	emit_signal("stopTimer")
+	set_physics_process(false)
 	$scaleAni.play("scale")
 	yield(get_tree().create_timer(1.0), "timeout")
 	emit_signal("died")

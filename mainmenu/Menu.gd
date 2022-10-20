@@ -14,6 +14,7 @@ func _ready():
 	GlobalSettings.toggle_vsync(Save.game_data.vsync) 
 	GlobalSettings.toggle_FPS(Save.game_data.display_fps)
 	GlobalSettings.fps_cap(Save.game_data.fps_cap)
+	$Label.set_text(Save.timer_datlevel1_time)
 
 func _on_StartButton_pressed():
 	get_tree().change_scene("res://world.tscn")
@@ -28,4 +29,8 @@ func _on_QuitButton_pressed():
 
 
 func _on_CreditsButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_LevelButton_pressed():
 	pass # Replace with function body.

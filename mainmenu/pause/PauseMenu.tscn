@@ -30,11 +30,11 @@ margin_right = 64.0
 margin_bottom = 20.0
 text = "Resume"
 
-[node name="OptionsButtom" type="Button" parent="Pause/VBoxContainer"]
+[node name="RetryButtom" type="Button" parent="Pause/VBoxContainer"]
 margin_top = 24.0
 margin_right = 64.0
 margin_bottom = 44.0
-text = "Options"
+text = "Restart"
 
 [node name="QuitButton" type="Button" parent="Pause/VBoxContainer"]
 margin_top = 48.0
@@ -43,5 +43,5 @@ margin_bottom = 68.0
 text = "Quit"
 
 [connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="Pause/VBoxContainer/OptionsButtom" to="Pause" method="_on_OptionsButtom_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/RetryButtom" to="Pause" method="_on_RetryButtom_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/QuitButton" to="Pause" method="_on_QuitButton_pressed"]

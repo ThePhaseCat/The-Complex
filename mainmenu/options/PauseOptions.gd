@@ -8,7 +8,7 @@ onready var display_fps = $VBoxContainer/FPSViewButton
 onready var fps_cap = $VBoxContainer/fps_Slider
 
 func _ready():
-	
+	visible = true
 	fullscreen.pressed = Save.game_data.fullscreen
 	vsync.pressed =  Save.game_data.vsync
 	borderless.pressed = Save.game_data.borderless
@@ -18,7 +18,7 @@ func _ready():
 
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://mainmenu/Menu.tscn")
+	get_tree().change_scene("res://world.tscn")
 
 
 func _on_FullScreenButton_toggled(button_pressed):

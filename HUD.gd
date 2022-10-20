@@ -2,6 +2,9 @@ extends CanvasLayer
 
 signal dieScreen()
 
+signal timerStarted()
+signal timerStopped()
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -21,3 +24,11 @@ func _on_Player_new_health(new_health):
 
 func _on_Player_died():
 	emit_signal("dieScreen")
+
+
+func _on_Player_startTimer():
+	emit_signal("timerStarted")
+
+
+func _on_Player_stopTimer():
+	emit_signal("timerStopped")
