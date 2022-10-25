@@ -87,4 +87,6 @@ anims/scale = SubResource( 4 )
 [connection signal="set_health" from="." to="HUD" method="_on_Player_set_health"]
 [connection signal="startTimer" from="." to="HUD" method="_on_Player_startTimer"]
 [connection signal="stopTimer" from="." to="HUD" method="_on_Player_stopTimer"]
+[connection signal="win" from="." to="HUD" method="_on_Player_win"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

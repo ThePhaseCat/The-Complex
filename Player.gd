@@ -3,9 +3,11 @@ extends KinematicBody2D
 signal set_health(health_max)
 signal new_health(new_health)
 signal died()
+signal win()
 
 signal startTimer()
 signal stopTimer()
+
 
 var movespeed = 200
 var bullet_speed = 1000
@@ -21,6 +23,7 @@ var bullet_instance2
 var parent_rotation 
 
 func _ready():
+	print(GlobalSettings.current_level)
 	set_physics_process(true)
 	emit_signal("startTimer")
 	$gun1.show()
@@ -104,7 +107,6 @@ func _on_Area2D_body_entered(body):
 		else:
 			health_change()
 			hit_flash()
-			
 
 func hit_flash():
 	$Sprite.self_modulate = Color(255, 0, 0)
@@ -119,3 +121,8 @@ func hit_flash():
 	yield(get_tree().create_timer(0.3), "timeout")
 	$Sprite.self_modulate = Color(255, 255, 255)
 
+
+
+func _on_Area2D_area_entered(area):
+	if "teleport" in area.name:
+		emit_signal("win")

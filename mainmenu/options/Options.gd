@@ -8,7 +8,6 @@ onready var display_fps = $VBoxContainer/FPSViewButton
 onready var fps_cap = $VBoxContainer/fps_Slider
 
 func _ready():
-	
 	fullscreen.pressed = Save.game_data.fullscreen
 	vsync.pressed =  Save.game_data.vsync
 	borderless.pressed = Save.game_data.borderless

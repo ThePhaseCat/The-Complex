@@ -5,6 +5,9 @@ signal dieScreen()
 signal timerStarted()
 signal timerStopped()
 
+signal timerSave()
+signal winScreen()
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -32,3 +35,8 @@ func _on_Player_startTimer():
 
 func _on_Player_stopTimer():
 	emit_signal("timerStopped")
+
+
+func _on_Player_win():
+	emit_signal("timerSave")
+	emit_signal("winScreen")

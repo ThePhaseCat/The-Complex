@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://mainmenu/levelselect/sprites/basenohover.png" type="Texture" id=1]
+[ext_resource path="res://mainmenu/levelselect/sprites/basehover.png" type="Texture" id=2]
+
+[node name="levelbasebutton" type="TextureButton"]
+margin_right = 1200.0
+margin_bottom = 900.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+
+[node name="name" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -55.5
+margin_right = 55.5
+margin_bottom = 14.0
+text = "Level Name Here"
+align = 1
+valign = 1
+
+[node name="time" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -14.0
+margin_right = 20.0
+text = "N/A"
+align = 1
+valign = 1

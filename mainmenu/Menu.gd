@@ -14,10 +14,10 @@ func _ready():
 	GlobalSettings.toggle_vsync(Save.game_data.vsync) 
 	GlobalSettings.toggle_FPS(Save.game_data.display_fps)
 	GlobalSettings.fps_cap(Save.game_data.fps_cap)
-	$Label.set_text(Save.timer_datlevel1_time)
+	$Label.set_text(Save.timer_data.level1_time)
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://world.tscn")
+	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
 
 
 func _on_OptionsButton_pressed():
