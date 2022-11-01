@@ -29,6 +29,7 @@ func _ready():
 	$gun1.show()
 	$gun2.hide()
 	emit_signal("set_health", health)
+	GlobalSettings.deathSpike = false
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -45,6 +46,9 @@ func _physics_process(delta):
 	motion = motion.normalized()
 	motion = move_and_slide(motion * movespeed)
 	look_at(get_global_mouse_position())
+	
+	if GlobalSettings.deathSpike == true:
+		kill()
 	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
@@ -107,6 +111,7 @@ func _on_Area2D_body_entered(body):
 		else:
 			health_change()
 			hit_flash()
+
 
 func hit_flash():
 	$Sprite.self_modulate = Color(255, 0, 0)

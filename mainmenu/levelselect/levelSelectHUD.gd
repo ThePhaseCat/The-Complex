@@ -8,7 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$level1/time.set_text
+	print(Save.timer_data.level1_time)
+	$level1/time.set_text(Save.timer_data.level1_time)
 
 
 

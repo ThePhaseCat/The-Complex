@@ -39,6 +39,19 @@ func load_data():
 		timer_data ={
 			"level1_time": "0",
 			"level2_time": "0",
+			"level3_time": "0",
+			"level4_time": "0",
+			"level5_time": "0",
+			"level6_time": "0",
+			"level7_time": "0",
+			"level8_time": "0",
+			"level9_time": "0",
+			"level10_time": "0",
+			"level11_time": "0",
+			"level12_time": "0",
+			"level13_time": "0",
+			"level14_time": "0",
+			"level15_time": "0",
 		}
 		save_data()
 	file.open(SAVEFILE, File.READ)

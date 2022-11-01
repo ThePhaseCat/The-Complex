@@ -24,7 +24,7 @@ func _on_HUD_timerStopped():
 func _on_HUD_timerSave():
 	var level = GlobalSettings.current_level
 	if (level == "level1"):
-		Save.game_data.level1 = true
-		Save.timer_data.level1_time = trueTime
-	
+		if (Save.timer_data.level1_time >= trueTime):
+			Save.game_data.level1 = true
+			Save.timer_data.level1_time = trueTime
 	Save.save_data()
