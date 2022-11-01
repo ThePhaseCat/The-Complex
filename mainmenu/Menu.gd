@@ -29,7 +29,3 @@ func _on_QuitButton_pressed():
 
 func _on_CreditsButton_pressed():
 	pass # Replace with function body.
-
-
-func _on_LevelButton_pressed():
-	pass # Replace with function body.
