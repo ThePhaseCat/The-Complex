@@ -4,7 +4,7 @@ var motion = Vector2()
 var speed = 1
 var bulletSpeed = 500
 
-var bulletAttack = preload("res://EnemyGunStuff.tscn")
+var bulletAttack = preload("res://hurtStuff/turretGunStuff.tscn")
 
 var _timer = null
 
@@ -13,9 +13,9 @@ func _ready():
 	_timer = Timer.new()
 	add_child(_timer)
 	_timer.connect("timeout", self, "_on_Timer_timeout")
-	_timer.set_wait_time(2.0)
+	_timer.set_wait_time(1.0)
 	_timer.set_one_shot(false) # Make sure it loops
-	_timer.start()
+	_timer.stop()
 
 func _on_Timer_timeout():
 	fire()
@@ -30,5 +30,9 @@ func fire():
 	attack_instance.rotation_degrees = rotation_degrees
 	attack_instance.apply_impulse(Vector2(), Vector2(bulletSpeed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", attack_instance)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	get_tree().get_root().call_deferred("remove_child", attack_instance)
+
+
+func _on_PlayerDetectArea_body_entered(body):
+	_timer.start()

@@ -27,7 +27,9 @@ func _on_HUD_timerSave():
 		if (Save.timer_data.level1_time == "0"):
 			Save.game_data.level1 = true
 			Save.timer_data.level1_time = trueTime
+			Save.save_data()
 		if (Save.timer_data.level1_time >= trueTime):
 			Save.timer_data.level1_time = trueTime
-	
-	Save.save_data()
+			Save.save_data()
+		if (Save.timer_data.level1_time <= trueTime):
+			pass

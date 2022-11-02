@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://hurtStuff/gunTurret.gd" type="Script" id=1]
 [ext_resource path="res://Player.png" type="Texture" id=2]
@@ -8,6 +8,9 @@ extents = Vector2( 7, 7 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6.5, 6.5 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 104.307
 
 [node name="gunTurret" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -24,3 +27,10 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="PlayerDetectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_PlayerDetectArea_body_entered"]

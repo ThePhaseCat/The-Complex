@@ -94,36 +94,42 @@ func kill():
 	emit_signal("died")
 	#get_tree().reload_current_scene()
 
-func health_change():
-	health = health - 10
+func health_change(value):
+	health = health - value
 	emit_signal("new_health", health)
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		if "EnemyGun" in body.name:
-			if health <= 0:
-				kill()
-			else:
-				health = health - 50
-				hit_flash()
 		if health <= 0:
 			kill()
 		else:
-			health_change()
+			health_change(9)
+			hit_flash()
+	if "EnemyGunStuff" in body.name:
+		if health <= 0:
+			kill()
+		else:
+			health_change(49)
+			hit_flash()
+	if "TurretGunStuff" in body.name:
+		if health <= 0:
+			kill()
+		else:
+			health_change(24)
 			hit_flash()
 
 
 func hit_flash():
 	$Sprite.self_modulate = Color(255, 0, 0)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.self_modulate = Color(255, 255, 255)
 	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.self_modulate = Color(255, 0, 0)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.self_modulate = Color(255, 255, 255)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.self_modulate = Color(255, 0, 0)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.self_modulate = Color(255, 255, 255)
 
 
