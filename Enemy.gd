@@ -30,3 +30,13 @@ func _on_Area2D_body_entered(body):
 			speed = 0
 			yield(get_tree().create_timer(0.5), "timeout")
 			speed = 2.5
+
+
+func _on_PlayerDetectArea_body_entered(body):
+	if "Player" in body.name:
+		$Sprite.show()
+
+
+func _on_PlayerDetectArea_body_exited(body):
+	if "Player" in body.name:
+		$Sprite.hide()

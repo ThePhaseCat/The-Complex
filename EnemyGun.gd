@@ -9,6 +9,7 @@ var bulletAttack = preload("res://EnemyGunStuff.tscn")
 var _timer = null
 
 func _ready():
+	$Sprite.hide()
 	set_physics_process(true)
 	_timer = Timer.new()
 	add_child(_timer)
@@ -46,8 +47,10 @@ func _on_Area2D_body_entered(body):
 
 func _on_PlayerDetectArea_body_entered(body):
 	if "Player" in body.name:
+		$Sprite.show()
 		speed = 0
 
 func _on_PlayerDetectArea_body_exited(body):
 	if "Player" in body.name:
+		$Sprite.hide()
 		speed = 1
