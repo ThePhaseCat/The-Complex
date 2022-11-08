@@ -83,6 +83,7 @@ anims/RESET = SubResource( 3 )
 anims/scale = SubResource( 4 )
 
 [connection signal="died" from="." to="HUD" method="_on_Player_died"]
+[connection signal="health_heal" from="." to="HUD" method="_on_Player_health_heal"]
 [connection signal="new_health" from="." to="HUD" method="_on_Player_new_health"]
 [connection signal="set_health" from="." to="HUD" method="_on_Player_set_health"]
 [connection signal="startTimer" from="." to="HUD" method="_on_Player_startTimer"]

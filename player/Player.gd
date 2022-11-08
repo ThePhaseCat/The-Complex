@@ -2,8 +2,10 @@ extends KinematicBody2D
 
 signal set_health(health_max)
 signal new_health(new_health)
+signal health_heal(health_healed)
 signal died()
 signal win()
+
 
 signal startTimer()
 signal stopTimer()
@@ -98,6 +100,7 @@ func health_change(value):
 	health = health - value
 	emit_signal("new_health", health)
 
+
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
 		if health <= 0:
@@ -117,6 +120,9 @@ func _on_Area2D_body_entered(body):
 		else:
 			health_change(24)
 			hit_flash()
+	if "HealthBox" in body.name:
+		health = 50
+		emit_signal("health_heal", health)
 
 
 func hit_flash():

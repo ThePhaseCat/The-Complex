@@ -7,6 +7,7 @@ signal timerStopped()
 
 signal timerSave()
 signal winScreen()
+var health = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -19,6 +20,7 @@ func _ready():
 
 
 func _on_Player_set_health(health_max):
+	health = health_max
 	$HealthBar/ProgressBar.value = health_max
 
 func _on_Player_new_health(new_health):
@@ -40,3 +42,8 @@ func _on_Player_stopTimer():
 func _on_Player_win():
 	emit_signal("timerSave")
 	emit_signal("winScreen")
+
+
+func _on_Player_health_heal(health_healed):
+	$HealthBar/ProgressBar.value = 50
+	print("yes")

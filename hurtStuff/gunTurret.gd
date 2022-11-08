@@ -15,6 +15,7 @@ func _ready():
 	_timer.connect("timeout", self, "_on_Timer_timeout")
 	_timer.set_wait_time(1.0)
 	_timer.set_one_shot(false) # Make sure it loops
+	_timer.start()
 	_timer.stop()
 
 func _on_Timer_timeout():
@@ -35,4 +36,10 @@ func fire():
 
 
 func _on_PlayerDetectArea_body_entered(body):
-	_timer.start()
+	if "Player" in body.name:
+		_timer.start()
+
+
+func _on_PlayerDetectArea_body_exited(body):
+	if "Player" in body.name:
+		_timer.stop()
