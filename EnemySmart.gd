@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 var motion = Vector2()
-var speed = 3
+var speed = 2.5
+var health = 75
 
 func _ready():
 	set_physics_process(false)
@@ -17,15 +18,31 @@ func _physics_process(delta):
 	motion = motion.normalized() * speed
 	move_and_collide(motion)
 
+func health_change():
+	health = health - 25
+
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
-		queue_free()
-
+		if health <= 0:
+			queue_free()
+		else:
+			health_change()
+			speed = 0
+			yield(get_tree().create_timer(0.5), "timeout")
+			speed = 2.5
 
 func _on_StealhDetectArea_body_entered(body):
 	if "Player" in body.name:
-		print("Player is in detection area!")
-		yield(get_tree().create_timer(10.0), "timeout")
-		print("Player is now full detected!")
+		yield(get_tree().create_timer(1.0), "timeout")
 		set_physics_process(true)
 
+
+
+func _on_PlayerDetectArea_body_entered(body):
+	if "Player" in body.name:
+		$Sprite.show()
+
+
+func _on_PlayerDetectArea_body_exited(body):
+	if "Player" in body.name:
+		$Sprite.hide()
