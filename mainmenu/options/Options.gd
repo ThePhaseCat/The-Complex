@@ -39,3 +39,7 @@ func _on_FPSViewButton_toggled(button_pressed):
 func _on_fps_Slider_value_changed(value):
 	GlobalSettings.fps_cap(value)
 	$"fps value".set_text("FPS: " + String(value))
+
+
+func _on_deleteData_pressed():
+	get_tree().change_scene("res://mainmenu/delete/deleteScene.tscn")

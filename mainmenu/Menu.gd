@@ -28,4 +28,4 @@ func _on_QuitButton_pressed():
 
 
 func _on_CreditsButton_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://mainmenu/credits/GodotCredits.tscn")

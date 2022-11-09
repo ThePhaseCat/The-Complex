@@ -8,8 +8,6 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(Save.timer_data.level1_time)
-	$name.set_text("Level 1")
 	if(Save.level_data.level1==true):
 		$name.set_text(Save.timer_data.level1_time)
 

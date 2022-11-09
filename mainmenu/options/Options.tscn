@@ -59,9 +59,19 @@ margin_right = 167.0
 margin_bottom = 152.0
 text = "Quit"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="deleteData" type="Button" parent="VBoxContainer2"]
+margin_right = 94.0
+margin_bottom = 20.0
+text = "Delete Data?"
+
 [connection signal="toggled" from="VBoxContainer/FullScreenButton" to="." method="_on_FullScreenButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/BorderlessButton" to="." method="_on_BorderlessButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/VSYNCButton" to="." method="_on_VSYNCButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/FPSViewButton" to="." method="_on_FPSViewButton_toggled"]
 [connection signal="value_changed" from="VBoxContainer/fps_Slider" to="." method="_on_fps_Slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="VBoxContainer2/deleteData" to="." method="_on_deleteData_pressed"]
