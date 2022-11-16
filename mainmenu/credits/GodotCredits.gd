@@ -33,7 +33,10 @@ var credits = [
 		"Health Box and spikes created by me using Aesprite",
 		"",
 		"Gun Sprites made by Stagnation",
-		"https://opengameart.org/users/stagnation"
+		"https://opengameart.org/users/stagnation",
+		"",
+		"Key Sprite made by BizmasterStudios",
+		"https://opengameart.org/content/key-icons"
 	],[
 		"Music",
 		"Musician Name"

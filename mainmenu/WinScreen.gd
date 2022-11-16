@@ -8,6 +8,8 @@ func _on_QuitButton_pressed():
 	var level = GlobalSettings.current_level
 	if(level == "level1"):
 		Save.level_data.level1 = true
+	if(level == "level2"):
+		Save.level_data.level2 = true
 	
 	Save.save_data()
 	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")

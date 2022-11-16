@@ -33,6 +33,7 @@ func _ready():
 	$gun2.hide()
 	emit_signal("set_health", health)
 	GlobalSettings.deathSpike = false
+	GlobalSettings.keyHave = false
 
 func _physics_process(delta):
 	moveCheck()
@@ -141,6 +142,12 @@ func _on_Area2D_body_entered(body):
 	if "HealthBox" in body.name:
 		health = 50
 		emit_signal("health_heal", health)
+	if "keyNode" in body.name:
+		if (GlobalSettings.keyHave==false):
+			GlobalSettings.keyHave = true
+			print("Key obtained")
+		if (GlobalSettings.keyHave==true):
+			pass
 
 
 func hit_flash():

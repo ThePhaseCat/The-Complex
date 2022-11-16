@@ -5,6 +5,7 @@ var speed = 2.5
 var health = 75
 
 func _ready():
+	$Sprite.hide()
 	set_physics_process(false)
 
 
