@@ -18,6 +18,9 @@ var weapon_select = 1
 var bullet = preload("res://Bullet.tscn")
 var bullet2 = preload("res://Bullet2.tscn")
 
+var ak_sound = preload("res://ak_sound.tscn")
+var smg_sound = preload("res://smg_sound.tscn")
+
 var health = 50
 
 var bullet_instance
@@ -31,6 +34,7 @@ func _ready():
 	emit_signal("startTimer")
 	$gun1.show()
 	$gun2.hide()
+	$key.hide()
 	emit_signal("set_health", health)
 	GlobalSettings.deathSpike = false
 	GlobalSettings.keyHave = false
@@ -78,6 +82,10 @@ func _physics_process(delta):
 		if weapon_select == 2:
 			fire2()
 	
+	if(GlobalSettings.keyHave == true):
+		$key.show()
+	if(GlobalSettings.keyHave == false):
+		$key.hide()
 
 func moveCheck():
 	if global_position != previous_position:
@@ -93,6 +101,7 @@ func fire():
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
+	sound1()
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().get_root().call_deferred("remove_child", bullet_instance)
 
@@ -103,8 +112,23 @@ func fire2():
 	bullet_instance2.rotation_degrees = rotation_degrees
 	bullet_instance2.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance2)
+	sound2()
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().get_root().call_deferred("remove_child", bullet_instance2)
+
+func sound1():
+	var ak_sound_instance = ak_sound.instance()
+	get_tree().get_root().call_deferred("add_child", ak_sound_instance)
+	ak_sound_instance.play()
+	yield(get_tree().create_timer(0.52), "timeout")
+	get_tree().get_root().call_deferred("remove_child", ak_sound_instance)
+
+func sound2():
+	var smg_sound_instance = smg_sound.instance()
+	get_tree().get_root().call_deferred("add_child", smg_sound_instance)
+	smg_sound_instance.play()
+	yield(get_tree().create_timer(0.11), "timeout")
+	get_tree().get_root().call_deferred("remove_child", smg_sound_instance)
 
 func kill():
 	$walksound.stop()

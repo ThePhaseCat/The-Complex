@@ -42,7 +42,8 @@ var credits = [
 		"Musician Name"
 	],[
 		"Sound Effects",
-		"SFX Name"
+		"Gun sounds from Pixabay",
+		"https://pixabay.com/"
 	],[
 		"Testers",
 		"Name 1",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://spotlight.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://gun/gun1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gun/gun2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://audio/footsteps.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sprites/KeyIcons.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -85,6 +86,12 @@ anims/scale = SubResource( 4 )
 
 [node name="walksound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+
+[node name="key" type="Sprite" parent="."]
+position = Vector2( -17, -1 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
 
 [connection signal="died" from="." to="HUD" method="_on_Player_died"]
 [connection signal="health_heal" from="." to="HUD" method="_on_Player_health_heal"]
