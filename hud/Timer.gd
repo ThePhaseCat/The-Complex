@@ -43,5 +43,15 @@ func _on_HUD_timerSave():
 			#Save.save_data()
 		if (Save.timer_data.level2_time <= trueTime):
 			pass
+	if (level == "level3"):
+		if (Save.timer_data.level3_time == "0"):
+			Save.game_data.level3 = true
+			Save.timer_data.level3_time = trueTime
+			#Save.save_data()
+		if (Save.timer_data.level3_time >= trueTime):
+			Save.timer_data.level3_time = trueTime
+			#Save.save_data()
+		if (Save.timer_data.level3_time <= trueTime):
+			pass
 	
 	Save.save_data()

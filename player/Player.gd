@@ -116,6 +116,8 @@ func fire2():
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
+#switch sounds to follow bullets (just shove scripts into fire functions and make them "act" like fire functions)
+
 func sound1():
 	var ak_sound_instance = ak_sound.instance()
 	get_tree().get_root().call_deferred("add_child", ak_sound_instance)
