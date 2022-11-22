@@ -4,7 +4,7 @@ var motion = Vector2()
 var speed = 1
 var bulletSpeed = 500
 
-var bulletAttack = preload("res://EnemyGunStuff.tscn")
+var bulletAttack = preload("res://EnemyTeleportStuff.tscn")
 
 var _timer = null
 var teleTime = null
@@ -23,6 +23,7 @@ func _ready():
 	_timer.set_wait_time(3.0)
 	_timer.set_one_shot(false) # Make sure it loops
 	_timer.start()
+	_timer.stop()
 	
 	teleTime = Timer.new()
 	add_child(teleTime)
@@ -30,25 +31,32 @@ func _ready():
 	teleTime.set_wait_time(2.0)
 	teleTime.set_one_shot(false)
 	teleTime.start()
+	teleTime.stop()
 
 func _on_Timer_timeout():
 	fire()
 
 func _on_teleTime_timeout():
-	randomPoint()
+	var random = RandomNumberGenerator.new()
+	randomize()
+	var cho_dir = null
+	cho_dir = randi()%4+1
+	if(cho_dir == 1):
+		position += Vector2(randi()%50+10, randi()%50+10)
+	if(cho_dir == 2):
+		position -= Vector2(randi()%50+10, randi()%50+10)
+	if(cho_dir == 3):
+		position += Vector2(random.randi_range(-50, -10), random.randi_range(-50, -10))
+	if(cho_dir == 4):
+		position -= Vector2(random.randi_range(-50, -10), random.randi_range(-50, -10))
+	
 
 func _physics_process(delta):
 	var motion = Vector2()
 	var Player = get_parent().get_node("Player")
 
-	motion += (Vector2(Player.position) - position)
 	look_at(Player.position)
 
-	motion = motion.normalized() * speed
-	move_and_collide(motion)
-	
-	motion.x += randomX
-	motion.y += randomY
 
 func fire():
 	var attack_instance = bulletAttack.instance()
@@ -56,7 +64,7 @@ func fire():
 	attack_instance.rotation_degrees = rotation_degrees
 	attack_instance.apply_impulse(Vector2(), Vector2(bulletSpeed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", attack_instance)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.7), "timeout")
 	get_tree().get_root().call_deferred("remove_child", attack_instance)
 
 func _on_Area2D_body_entered(body):
@@ -66,19 +74,11 @@ func _on_Area2D_body_entered(body):
 func _on_PlayerDetectArea_body_entered(body):
 	if "Player" in body.name:
 		$Sprite.show()
+		teleTime.start()
+		_timer.start()
 
 func _on_PlayerDetectArea_body_exited(body):
 	if "Player" in body.name:
 		$Sprite.hide()
-
-func randomPoint():
-	randomize()
-	var X = randi()%500+100
-	var Y = randi()%500+100
-	randomX = X
-	randomY = Y
-	
-	yield(get_tree().create_timer(0.1), "timeout")
-	randomX = 0
-	randomY = 0
-	print("Should have teleported")
+		teleTime.stop()
+		_timer.stop()

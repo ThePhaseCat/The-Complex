@@ -161,6 +161,12 @@ func _on_Area2D_body_entered(body):
 		else:
 			health_change(49)
 			hit_flash()
+	if "EnemyTeleportStuff" in body.name:
+		if health <= 0:
+			kill()
+		else:
+			health_change(20)
+			hit_flash()
 	if "TurretGunStuff" in body.name:
 		if health <= 0:
 			kill()
