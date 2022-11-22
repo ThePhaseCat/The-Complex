@@ -24,8 +24,8 @@ func _on_HUD_timerStopped():
 func _on_HUD_timerSave():
 	var level = GlobalSettings.current_level
 	if (level == "level1"):
+		Save.level_data.level1 = true
 		if (Save.timer_data.level1_time == "0"):
-			Save.game_data.level1 = true
 			Save.timer_data.level1_time = trueTime
 			#Save.save_data()
 		if (Save.timer_data.level1_time >= trueTime):
@@ -34,8 +34,8 @@ func _on_HUD_timerSave():
 		if (Save.timer_data.level1_time <= trueTime):
 			pass
 	if (level == "level2"):
+		Save.level_data.level2 = true
 		if (Save.timer_data.level2_time == "0"):
-			Save.game_data.level2 = true
 			Save.timer_data.level2_time = trueTime
 			#Save.save_data()
 		if (Save.timer_data.level2_time >= trueTime):
@@ -44,16 +44,16 @@ func _on_HUD_timerSave():
 		if (Save.timer_data.level2_time <= trueTime):
 			pass
 	if (level == "level3"):
+		print("Recieved info that Level 3 finished")
+		Save.level_data.level3 = true
 		if (Save.timer_data.level3_time == "0"):
-			Save.game_data.level3 = true
 			Save.timer_data.level3_time = trueTime
 			#Save.save_data()
 		if (Save.timer_data.level3_time >= trueTime):
 			Save.timer_data.level3_time = trueTime
-			Save.game_data.level3 = true
 			#Save.save_data()
 		if (Save.timer_data.level3_time <= trueTime):
-			Save.game_data.level3 = true
+			pass
 	if (level == "level4"):
 		if (Save.timer_data.level4_time == "0"):
 			Save.game_data.level4 = true

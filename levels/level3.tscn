@@ -108,3 +108,6 @@ position = Vector2( 56, 1144 )
 position = Vector2( 0, 992 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
+
+[node name="teleport2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -16, -56 )
