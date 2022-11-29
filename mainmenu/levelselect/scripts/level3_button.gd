@@ -4,7 +4,7 @@ extends TextureButton
 func _ready():
 	if(Save.level_data.level2==true):
 		set_disabled(false)
-		$name.set_text(Save.timer_data.level2_time)
+		$name.set_text(Save.timer_data.level3_time)
 	if(Save.level_data.level2==false):
 		set_disabled(true)
 

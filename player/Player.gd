@@ -86,6 +86,8 @@ func _physics_process(delta):
 		$key.show()
 	if(GlobalSettings.keyHave == false):
 		$key.hide()
+	if(health <= 0):
+		kill()
 
 func moveCheck():
 	if global_position != previous_position:
@@ -150,38 +152,22 @@ func health_change(value):
 
 func _on_Area2D_body_entered(body):
 	if "Enemy" in body.name:
-		if health <= 0:
-			kill()
-		else:
-			health_change(9)
-			hit_flash()
+		health_change(10)
+		hit_flash()
 	if "EnemyGunStuff" in body.name:
-		if health <= 0:
-			kill()
-		else:
-			health_change(49)
-			hit_flash()
+		health_change(50)
+		hit_flash()
 	if "EnemyTeleportStuff" in body.name:
-		if health <= 0:
-			kill()
-		else:
-			health_change(20)
-			hit_flash()
+		health_change(15)
+		hit_flash()
 	if "TurretGunStuff" in body.name:
-		if health <= 0:
-			kill()
-		else:
-			health_change(24)
-			hit_flash()
+		health_change(25)
+		hit_flash()
 	if "HealthBox" in body.name:
 		health = 50
 		emit_signal("health_heal", health)
 	if "keyNode" in body.name:
-		if (GlobalSettings.keyHave==false):
-			GlobalSettings.keyHave = true
-			print("Key obtained")
-		if (GlobalSettings.keyHave==true):
-			pass
+		pass
 
 
 func hit_flash():

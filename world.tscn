@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://teleport.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://playerstuff/keyNode.tscn" type="PackedScene" id=11]
 [ext_resource path="res://hurtStuff/doorwithkey.tscn" type="PackedScene" id=12]
 [ext_resource path="res://EnemyTeleport.tscn" type="PackedScene" id=13]
+[ext_resource path="res://EnemySuper.tscn" type="PackedScene" id=14]
 
 [node name="world" type="Node2D"]
 
@@ -72,3 +73,6 @@ position = Vector2( -176, -120 )
 
 [node name="EnemyTeleport" parent="." instance=ExtResource( 13 )]
 position = Vector2( -120, -72 )
+
+[node name="EnemySuper" parent="." instance=ExtResource( 14 )]
+position = Vector2( -520, -64 )
