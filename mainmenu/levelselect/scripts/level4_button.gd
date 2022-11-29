@@ -14,4 +14,4 @@ func _on_levelbasebutton_pressed():
 		pass
 	if(Save.level_data.level3==true):
 		GlobalSettings.current_level = "level4"
-		get_tree().change_scene("res://levels/level3.tscn")
+		get_tree().change_scene("res://levels/level4.tscn")

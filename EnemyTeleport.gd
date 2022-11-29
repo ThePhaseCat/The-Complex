@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var motion = Vector2()
 var speed = 1
-var bulletSpeed = 500
+var bulletSpeed = 1500
 
 var bulletAttack = preload("res://EnemyTeleportStuff.tscn")
 
@@ -20,7 +20,7 @@ func _ready():
 	_timer = Timer.new()
 	add_child(_timer)
 	_timer.connect("timeout", self, "_on_Timer_timeout")
-	_timer.set_wait_time(3.0)
+	_timer.set_wait_time(1.0)
 	_timer.set_one_shot(false) # Make sure it loops
 	_timer.start()
 	_timer.stop()
@@ -28,7 +28,7 @@ func _ready():
 	teleTime = Timer.new()
 	add_child(teleTime)
 	teleTime.connect("timeout", self, "_on_teleTime_timeout")
-	teleTime.set_wait_time(2.0)
+	teleTime.set_wait_time(1.0)
 	teleTime.set_one_shot(false)
 	teleTime.start()
 	teleTime.stop()
