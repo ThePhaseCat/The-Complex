@@ -4,7 +4,7 @@
 [ext_resource path="res://teleport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://walltile.tres" type="TileSet" id=4]
-[ext_resource path="res://EnemyGun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://playerstuff/BossWallDetectStart.tscn" type="PackedScene" id=5]
 [ext_resource path="res://EnemySmart.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.png" type="Texture" id=7]
 [ext_resource path="res://hurtStuff/Spikes.tscn" type="PackedScene" id=8]
@@ -12,8 +12,8 @@
 [ext_resource path="res://hurtStuff/target.tscn" type="PackedScene" id=10]
 [ext_resource path="res://playerstuff/keyNode.tscn" type="PackedScene" id=11]
 [ext_resource path="res://hurtStuff/doorwithkey.tscn" type="PackedScene" id=12]
-[ext_resource path="res://EnemyTeleport.tscn" type="PackedScene" id=13]
-[ext_resource path="res://EnemySuper.tscn" type="PackedScene" id=14]
+[ext_resource path="res://BossWall.tscn" type="PackedScene" id=13]
+[ext_resource path="res://playerstuff/BossWallDetectEnd.tscn" type="PackedScene" id=14]
 
 [node name="world" type="Node2D"]
 
@@ -56,9 +56,6 @@ tile_data = PoolIntArray( -458769, 0, 0, -458758, 0, 0, -458757, 0, 0, -458756, 
 
 [node name="teleport" parent="." instance=ExtResource( 2 )]
 
-[node name="EnemyGun" parent="." instance=ExtResource( 5 )]
-position = Vector2( -99, 289 )
-
 [node name="HealthBox" parent="." instance=ExtResource( 9 )]
 position = Vector2( -200, 36 )
 
@@ -71,8 +68,14 @@ position = Vector2( -203, 129 )
 [node name="doorkey" parent="." instance=ExtResource( 12 )]
 position = Vector2( -176, -120 )
 
-[node name="EnemyTeleport" parent="." instance=ExtResource( 13 )]
-position = Vector2( -120, -72 )
+[node name="BossWallDetect" parent="." instance=ExtResource( 5 )]
+position = Vector2( -512, 32 )
 
-[node name="EnemySuper" parent="." instance=ExtResource( 14 )]
-position = Vector2( -520, -64 )
+[node name="BossWall" parent="." instance=ExtResource( 13 )]
+position = Vector2( -528, -288 )
+
+[node name="EnemySmart2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -280, -400 )
+
+[node name="BossWallDetectEnd" parent="." instance=ExtResource( 14 )]
+position = Vector2( 352, -24 )

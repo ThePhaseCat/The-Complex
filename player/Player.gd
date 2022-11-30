@@ -168,6 +168,8 @@ func _on_Area2D_body_entered(body):
 		emit_signal("health_heal", health)
 	if "keyNode" in body.name:
 		pass
+	if "BossWall" in body.name:
+		kill()
 
 
 func hit_flash():

@@ -4,6 +4,7 @@ var fps_counter = true
 var current_level = "n/a"
 var deathSpike = false
 var keyHave = false
+var wallCharge = false
 
 func toggle_fullscreen(value):
 	OS.window_fullscreen = value
