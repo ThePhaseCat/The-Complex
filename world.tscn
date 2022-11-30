@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://teleport.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://walltile.tres" type="TileSet" id=4]
-[ext_resource path="res://playerstuff/BossWallDetectStart.tscn" type="PackedScene" id=5]
+[ext_resource path="res://EnemyGun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://EnemySmart.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.png" type="Texture" id=7]
 [ext_resource path="res://hurtStuff/Spikes.tscn" type="PackedScene" id=8]
@@ -14,6 +14,7 @@
 [ext_resource path="res://hurtStuff/doorwithkey.tscn" type="PackedScene" id=12]
 [ext_resource path="res://BossWall.tscn" type="PackedScene" id=13]
 [ext_resource path="res://playerstuff/BossWallDetectEnd.tscn" type="PackedScene" id=14]
+[ext_resource path="res://playerstuff/BossWallDetectStart.tscn" type="PackedScene" id=15]
 
 [node name="world" type="Node2D"]
 
@@ -68,7 +69,7 @@ position = Vector2( -203, 129 )
 [node name="doorkey" parent="." instance=ExtResource( 12 )]
 position = Vector2( -176, -120 )
 
-[node name="BossWallDetect" parent="." instance=ExtResource( 5 )]
+[node name="BossWallDetect" parent="." instance=ExtResource( 15 )]
 position = Vector2( -512, 32 )
 
 [node name="BossWall" parent="." instance=ExtResource( 13 )]
@@ -79,3 +80,6 @@ position = Vector2( -280, -400 )
 
 [node name="BossWallDetectEnd" parent="." instance=ExtResource( 14 )]
 position = Vector2( 352, -24 )
+
+[node name="EnemyGun" parent="." instance=ExtResource( 5 )]
+position = Vector2( 256, -448 )
