@@ -79,8 +79,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("LMB"):
 		if weapon_select == 1:
 			fire()
+			$ak_sound.play()
 		if weapon_select == 2:
 			fire2()
+			$smg_sound.play()
 	
 	if(GlobalSettings.keyHave == true):
 		$key.show()
@@ -103,7 +105,7 @@ func fire():
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
-	sound1()
+	#sound1()
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().get_root().call_deferred("remove_child", bullet_instance)
 
@@ -114,7 +116,7 @@ func fire2():
 	bullet_instance2.rotation_degrees = rotation_degrees
 	bullet_instance2.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance2)
-	sound2()
+	#sound2()
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().get_root().call_deferred("remove_child", bullet_instance2)
 
@@ -124,7 +126,7 @@ func sound1():
 	ak_sound_instance.rotation_degrees = rotation_degrees
 	get_tree().get_root().call_deferred("add_child", ak_sound_instance)
 	ak_sound_instance.play()
-	yield(get_tree().create_timer(0.52), "timeout")
+	#yield(get_tree().create_timer(0.55), "timeout")
 	get_tree().get_root().call_deferred("remove_child", ak_sound_instance)
 
 func sound2():

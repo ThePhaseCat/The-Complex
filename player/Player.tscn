@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://spotlight.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://gun/gun2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://audio/footsteps.ogg" type="AudioStream" id=7]
 [ext_resource path="res://sprites/KeyIcons.png" type="Texture" id=8]
+[ext_resource path="res://audio/ak_gun_sound.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/smg_gun_sound.wav" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -92,6 +94,12 @@ position = Vector2( -17, -1 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 8 )
+
+[node name="smg_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="ak_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
 
 [connection signal="died" from="." to="HUD" method="_on_Player_died"]
 [connection signal="health_heal" from="." to="HUD" method="_on_Player_health_heal"]
