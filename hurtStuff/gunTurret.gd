@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var motion = Vector2()
+var health = 50
 var speed = 1
 var bulletSpeed = 500
 
@@ -9,6 +10,7 @@ var bulletAttack = preload("res://hurtStuff/turretGunStuff.tscn")
 var _timer = null
 
 func _ready():
+	health = 50
 	set_physics_process(true)
 	_timer = Timer.new()
 	add_child(_timer)
@@ -34,6 +36,16 @@ func fire():
 	yield(get_tree().create_timer(0.5), "timeout")
 	get_tree().get_root().call_deferred("remove_child", attack_instance)
 
+func health_change():
+	health = health - 25
+
+func _on_Area2D_body_entered(body):
+	if "Bullet" in body.name:
+		if health <= 0:
+			queue_free()
+		else:
+			health_change()
+			yield(get_tree().create_timer(0.5), "timeout")
 
 func _on_PlayerDetectArea_body_entered(body):
 	if "Player" in body.name:

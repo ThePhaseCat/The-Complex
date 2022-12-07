@@ -54,7 +54,7 @@ func _on_HUD_timerSave():
 		if (Save.timer_data.level3_time <= trueTime):
 			pass
 	if (level == "level4"):
-		Save.game_data.level4 = true
+		Save.level_data.level4 = true
 		if (Save.timer_data.level4_time == "0"):
 			Save.timer_data.level4_time = trueTime
 			#Save.save_data()
@@ -64,7 +64,7 @@ func _on_HUD_timerSave():
 		if (Save.timer_data.level4_time <= trueTime):
 			pass
 	if (level == "level5"):
-		Save.game_data.level5 = true
+		Save.level_data.level5 = true
 		if (Save.timer_data.level5_time == "0"):
 			Save.timer_data.level5_time = trueTime
 			#Save.save_data()
@@ -72,6 +72,16 @@ func _on_HUD_timerSave():
 			Save.timer_data.level5_time = trueTime
 			#Save.save_data()
 		if (Save.timer_data.level5_time <= trueTime):
+			pass
+	if (level == "level6"):
+		Save.level_data.level6 = true
+		if (Save.timer_data.level6_time == "0"):
+			Save.timer_data.level6_time = trueTime
+			#Save.save_data()
+		if (Save.timer_data.level6_time >= trueTime):
+			Save.timer_data.level6_time = trueTime
+			#Save.save_data()
+		if (Save.timer_data.level6_time <= trueTime):
 			pass
 	
 	Save.save_data()
