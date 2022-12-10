@@ -5,6 +5,10 @@ func _ready():
 
 func _on_QuitButton_pressed():
 	get_tree().paused = false
+	Level1Music.stop()
+	Level2Music.stop()
+	
+	Level4Music.stop()
 	get_tree().change_scene("res://mainmenu/Menu.tscn")
 
 

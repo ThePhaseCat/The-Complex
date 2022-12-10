@@ -18,6 +18,10 @@ func _on_ResumeButton_pressed():
 	get_tree().paused = false
 
 func _on_QuitButton_pressed():
+	Level1Music.stop()
+	Level2Music.stop()
+	
+	Level4Music.stop()
 	get_tree().paused = false
 	get_tree().change_scene("res://mainmenu/Menu.tscn")
 

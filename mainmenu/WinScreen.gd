@@ -5,14 +5,13 @@ func _ready():
 
 func _on_QuitButton_pressed():
 	get_tree().paused = false
-	var level = GlobalSettings.current_level
-	if(level == "level1"):
-		Save.level_data.level1 = true
-	if(level == "level2"):
-		Save.level_data.level2 = true
+	Level1Music.stop()
+	Level2Music.stop()
+	
+	Level4Music.stop()
 	
 	Save.save_data()
-	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
+	get_tree().change_scene("res://mainmenu/Menu.tscn")
 
 
 func _on_RetryButton_pressed():

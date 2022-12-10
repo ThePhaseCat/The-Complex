@@ -10,6 +10,8 @@ func _ready():
 
 
 func _on_levelbasebutton_pressed():
+	MainMenuMusic.stop()
+	Level2Music.play()
 	if(Save.level_data.level1==false):
 		pass
 	if(Save.level_data.level1==true):

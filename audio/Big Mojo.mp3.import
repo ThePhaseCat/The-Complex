@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Big Mojo.mp3-fefb0a6267af6e9103602b365fcfa115.mp3str"
+
+[deps]
+
+source_file="res://audio/Big Mojo.mp3"
+dest_files=[ "res://.import/Big Mojo.mp3-fefb0a6267af6e9103602b365fcfa115.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

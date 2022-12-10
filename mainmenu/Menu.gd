@@ -8,6 +8,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(GlobalSettings.menuMusicPlaying == true && MainMenuMusic.playing == false):
+		MainMenuMusic.play()
+	if (MainMenuMusic.playing == true):
+		pass
 	$VBoxContainer/StartButton.grab_focus()
 	GlobalSettings.toggle_borderless(Save.game_data.borderless) 
 	GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen)

@@ -1,5 +1,7 @@
 extends Node
 
+var menuMusicPlaying = true
+
 var fps_counter = true
 var current_level = "n/a"
 var deathSpike = false

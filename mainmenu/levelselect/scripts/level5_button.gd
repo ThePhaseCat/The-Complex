@@ -10,5 +10,6 @@ func _ready():
 
 
 func _on_levelbasebutton_pressed():
+	MainMenuMusic.stop()
 	GlobalSettings.current_level = "level5"
 	get_tree().change_scene("res://levels/level5.tscn")

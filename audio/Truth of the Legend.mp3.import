@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Truth of the Legend.mp3-7a3c20a85c8e868a1e14a88d902c4c89.mp3str"
+
+[deps]
+
+source_file="res://audio/Truth of the Legend.mp3"
+dest_files=[ "res://.import/Truth of the Legend.mp3-7a3c20a85c8e868a1e14a88d902c4c89.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
