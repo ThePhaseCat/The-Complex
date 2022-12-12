@@ -4,3 +4,4 @@
 
 [node name="Level2Music" type="AudioStreamPlayer"]
 stream = ExtResource( 1 )
+bus = "Music"

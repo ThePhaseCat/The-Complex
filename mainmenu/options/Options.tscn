@@ -68,6 +68,32 @@ margin_right = 94.0
 margin_bottom = 20.0
 text = "Delete Data?"
 
+[node name="audioone" type="VBoxContainer" parent="."]
+margin_left = 46.0
+margin_top = 138.0
+margin_right = 233.0
+margin_bottom = 203.0
+
+[node name="masterSlide" type="HSlider" parent="audioone"]
+margin_right = 187.0
+margin_bottom = 16.0
+min_value = -20.0
+max_value = 0.0
+
+[node name="musicSlide" type="HSlider" parent="audioone"]
+margin_top = 20.0
+margin_right = 187.0
+margin_bottom = 36.0
+min_value = -20.0
+max_value = 0.0
+
+[node name="sfxSlide" type="HSlider" parent="audioone"]
+margin_top = 40.0
+margin_right = 187.0
+margin_bottom = 56.0
+min_value = -20.0
+max_value = 0.0
+
 [connection signal="toggled" from="VBoxContainer/FullScreenButton" to="." method="_on_FullScreenButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/BorderlessButton" to="." method="_on_BorderlessButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/VSYNCButton" to="." method="_on_VSYNCButton_toggled"]
@@ -75,3 +101,6 @@ text = "Delete Data?"
 [connection signal="value_changed" from="VBoxContainer/fps_Slider" to="." method="_on_fps_Slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="VBoxContainer2/deleteData" to="." method="_on_deleteData_pressed"]
+[connection signal="value_changed" from="audioone/masterSlide" to="." method="_on_masterSlide_value_changed"]
+[connection signal="value_changed" from="audioone/musicSlide" to="." method="_on_musicSlide_value_changed"]
+[connection signal="value_changed" from="audioone/sfxSlide" to="." method="_on_sfxSlide_value_changed"]

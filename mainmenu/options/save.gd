@@ -18,6 +18,9 @@ func load_data():
 			"vsync": false,
 			"display_fps": true,
 			"fps_cap": 60,
+			"master_vol": -10,
+			"music_vol": -10,
+			"sfx_vol": -10,
 		}
 		level_data={
 			"level1": false,

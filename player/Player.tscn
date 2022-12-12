@@ -74,6 +74,7 @@ anims/scale = SubResource( 4 )
 
 [node name="walksound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+bus = "SFX"
 
 [node name="key" type="Sprite" parent="."]
 position = Vector2( -17, -1 )
@@ -83,9 +84,11 @@ texture = ExtResource( 8 )
 
 [node name="smg_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
+bus = "SFX"
 
 [node name="ak_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+bus = "SFX"
 
 [connection signal="died" from="." to="HUD" method="_on_Player_died"]
 [connection signal="health_heal" from="." to="HUD" method="_on_Player_health_heal"]
