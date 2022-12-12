@@ -11,7 +11,7 @@
 [ext_resource path="res://EnemySmart.tscn" type="PackedScene" id=9]
 [ext_resource path="res://hurtStuff/doorwithkey.tscn" type="PackedScene" id=10]
 [ext_resource path="res://EnemyGun.tscn" type="PackedScene" id=11]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://player/PlayerAKonly.tscn" type="PackedScene" id=12]
 
 [node name="level5" type="Node2D"]
 
@@ -81,8 +81,8 @@ position = Vector2( 24, -232 )
 [node name="HealthBox3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, 128 )
 
-[node name="Player" parent="." instance=ExtResource( 12 )]
-position = Vector2( 0, 664 )
-
 [node name="teleport2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 128, 632 )
+
+[node name="Player" parent="." instance=ExtResource( 12 )]
+position = Vector2( 0, 640 )

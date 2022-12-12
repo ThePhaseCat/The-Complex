@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://player/PlayerAKonly.gd" type="Script" id=1]
+[ext_resource path="res://spotlight.png" type="Texture" id=2]
+[ext_resource path="res://Player.png" type="Texture" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gun/gun2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://audio/footsteps.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sprites/KeyIcons.png" type="Texture" id=8]
+[ext_resource path="res://audio/ak_gun_sound.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/smg_gun_sound.wav" type="AudioStream" id=10]
+[ext_resource path="res://playerstuff/player.tres" type="Animation" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 9 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "scale"
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+smoothing_enabled = true
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+color = Color( 0.0980392, 0.231373, 0.584314, 1 )
+shadow_enabled = true
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="gun1" parent="." instance=ExtResource( 6 )]
+position = Vector2( 21, 6 )
+scale = Vector2( 0.0293445, 0.0293445 )
+
+[node name="scaleAni" type="AnimationPlayer" parent="."]
+anims/RESET = ExtResource( 11 )
+anims/scale = SubResource( 4 )
+
+[node name="walksound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+bus = "SFX"
+
+[node name="key" type="Sprite" parent="."]
+position = Vector2( -17, -1 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="smg_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
+
+[node name="ak_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+bus = "SFX"
+
+[connection signal="died" from="." to="HUD" method="_on_Player_died"]
+[connection signal="health_heal" from="." to="HUD" method="_on_Player_health_heal"]
+[connection signal="new_health" from="." to="HUD" method="_on_Player_new_health"]
+[connection signal="set_health" from="." to="HUD" method="_on_Player_set_health"]
+[connection signal="startTimer" from="." to="HUD" method="_on_Player_startTimer"]
+[connection signal="stopTimer" from="." to="HUD" method="_on_Player_stopTimer"]
+[connection signal="win" from="." to="HUD" method="_on_Player_win"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
