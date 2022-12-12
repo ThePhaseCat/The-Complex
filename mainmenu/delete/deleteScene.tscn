@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mainmenu/delete/deleteScene.gd" type="Script" id=1]
+[ext_resource path="res://Player.png" type="Texture" id=2]
+[ext_resource path="res://mainmenu/TEXT.tres" type="Theme" id=3]
+[ext_resource path="res://mainmenu/TEXTsmall.tres" type="Theme" id=4]
 
 [node name="deleteScene" type="Control"]
 anchor_right = 1.0
@@ -12,25 +15,47 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -44.0
+theme = ExtResource( 4 )
 
 [node name="yes" type="Button" parent="VBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
 margin_right = 1024.0
-margin_bottom = 20.0
+margin_bottom = 18.0
 text = "Yes"
 
 [node name="no" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
+modulate = Color( 0, 1, 0.407843, 1 )
+margin_top = 22.0
 margin_right = 1024.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 text = "No, go back!"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0, 1, 0.407843, 1 )
 anchor_right = 1.0
-margin_bottom = 84.0
+margin_bottom = 200.0
+theme = ExtResource( 3 )
 tab_size = 10
 text = "Are you sure you want to delete your data?
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+anchor_right = 1.0
+margin_bottom = 200.0
+theme = ExtResource( 3 )
+tab_size = 10
+text = "
+
 
 This can not be undone..."
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.0588235, 0.0705882, 0.168627, 1 )
+position = Vector2( 890, 557 )
+scale = Vector2( 112.25, 70.625 )
+z_index = -1
+texture = ExtResource( 2 )
 
 [connection signal="pressed" from="VBoxContainer/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="VBoxContainer/no" to="." method="_on_no_pressed"]

@@ -5,5 +5,5 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if "Player" in body.name:
-		yield(get_tree().create_timer(0.01), "timeout")
+		yield(get_tree().create_timer(0.1), "timeout")
 		queue_free()

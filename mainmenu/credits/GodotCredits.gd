@@ -30,7 +30,7 @@ var credits = [
 		"(If I had to list all of them, we would be here for a while)"
 	],[
 		"Art",
-		"Health Box and spikes created by me using Aesprite",
+		"Most sprites created by me using Aesprite",
 		"",
 		"Gun Sprites made by Stagnation",
 		"https://opengameart.org/users/stagnation",
