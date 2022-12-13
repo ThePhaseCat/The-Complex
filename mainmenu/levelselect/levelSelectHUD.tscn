@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://mainmenu/levelselect/levels/level1_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://mainmenu/levelselect/levelSelectHUD.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://mainmenu/levelselect/levels/level5_button.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mainmenu/levelselect/levels/level6_button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mainmenu/TEXTsmall.tres" type="Theme" id=9]
+[ext_resource path="res://Player.png" type="Texture" id=10]
 
 [node name="levelSelectHUD" type="Control"]
 anchor_right = 1.0
@@ -50,9 +51,16 @@ margin_bottom = 18.0
 text = "Back"
 
 [node name="levelbasebutton" parent="." instance=ExtResource( 3 )]
-margin_left = 927.0
-margin_top = 436.0
-margin_right = 1027.0
-margin_bottom = 536.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -100.0
+margin_right = 0.0
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.298039, 0.196078, 0.196078, 1 )
+position = Vector2( 728, 360 )
+scale = Vector2( 92, 46 )
+z_index = -1
+texture = ExtResource( 10 )
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]

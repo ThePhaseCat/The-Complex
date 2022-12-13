@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://mainmenu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Player.png" type="Texture" id=2]
 [ext_resource path="res://mainmenu/TEXT.tres" type="Theme" id=3]
 [ext_resource path="res://sprites/enemey_smart.png" type="Texture" id=4]
 [ext_resource path="res://sprites/ak.png" type="Texture" id=5]
+[ext_resource path="res://mainmenu/TEXTsmall.tres" type="Theme" id=6]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -17,28 +18,29 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -100.0
 margin_right = 100.0
+theme = ExtResource( 6 )
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 margin_right = 100.0
-margin_bottom = 20.0
+margin_bottom = 18.0
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
+margin_top = 22.0
 margin_right = 100.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
+margin_top = 44.0
 margin_right = 100.0
-margin_bottom = 68.0
+margin_bottom = 62.0
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 72.0
+margin_top = 66.0
 margin_right = 100.0
-margin_bottom = 92.0
+margin_bottom = 84.0
 text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

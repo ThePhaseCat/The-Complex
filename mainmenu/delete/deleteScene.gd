@@ -2,6 +2,7 @@ extends Control
 
 
 func _on_yes_pressed():
+	ClickSound.play()
 	Save.level_data.level1 = false
 	Save.level_data.level2 = false
 	Save.level_data.level3 = false
@@ -37,4 +38,5 @@ func _on_yes_pressed():
 
 
 func _on_no_pressed():
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/options/Options.tscn")

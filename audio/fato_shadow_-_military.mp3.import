@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fato_shadow_-_military.mp3-2b433fd70f8643e9a8aaa23522c75b1b.mp3str"
+
+[deps]
+
+source_file="res://audio/fato_shadow_-_military.mp3"
+dest_files=[ "res://.import/fato_shadow_-_military.mp3-2b433fd70f8643e9a8aaa23522c75b1b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

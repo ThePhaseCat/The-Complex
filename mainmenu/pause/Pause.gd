@@ -15,18 +15,23 @@ func _ready():
 
 func _on_ResumeButton_pressed():
 	visible = false
+	ClickSound.play()
 	get_tree().paused = false
 
 func _on_QuitButton_pressed():
 	Level1Music.stop()
 	Level2Music.stop()
-	
+	Level3Music.stop()
 	Level4Music.stop()
+	Level5Music.stop()
+	Level6Music.stop()
 	get_tree().paused = false
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/Menu.tscn")
 
 
 func _on_RetryButtom_pressed():
 	visible = false
 	get_tree().paused = false
+	ClickSound.play()
 	get_tree().reload_current_scene()

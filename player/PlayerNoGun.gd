@@ -64,19 +64,19 @@ func _physics_process(delta):
 	
 	if GlobalSettings.deathSpike == true:
 		kill()
-	
-	#if Input.is_action_just_pressed("weapon 1"):
-		weapon_select = 1
-	#if Input.is_action_just_pressed("weapon 2"):
-		weapon_select = 2
+#
+#	#if Input.is_action_just_pressed("weapon 1"):
+#		weapon_select = 1
+#	#if Input.is_action_just_pressed("weapon 2"):
+#		weapon_select = 2
 
 	#if Input.is_action_just_pressed("LMB"):
-		if weapon_select == 1:
-			fire()
-			$ak_sound.play()
-		if weapon_select == 2:
-			fire2()
-			$smg_sound.play()
+#		if weapon_select == 1:
+#			fire()
+#			$ak_sound.play()
+#		if weapon_select == 2:
+#			fire2()
+#			$smg_sound.play()
 	
 	if(GlobalSettings.keyHave == true):
 		$key.show()

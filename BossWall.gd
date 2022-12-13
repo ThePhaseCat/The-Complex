@@ -5,7 +5,7 @@ var health = 100000
 
 var isMoving = false
 
-var speed = 1.5
+var speed = 1.3
 
 func _ready():
 	isMoving = false

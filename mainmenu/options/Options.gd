@@ -27,22 +27,27 @@ func _ready():
 
 func _on_BackButton_pressed():
 	Save.save_data()
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/Menu.tscn")
 
 
 func _on_FullScreenButton_toggled(button_pressed):
+	ClickSound.play()
 	GlobalSettings.toggle_fullscreen(button_pressed)
 
 
 func _on_BorderlessButton_toggled(button_pressed):
+	ClickSound.play()
 	GlobalSettings.toggle_borderless(button_pressed)
 
 
 func _on_VSYNCButton_toggled(button_pressed):
+	ClickSound.play()
 	GlobalSettings.toggle_vsync(button_pressed)
 
 
 func _on_FPSViewButton_toggled(button_pressed):
+	ClickSound.play()
 	GlobalSettings.toggle_FPS(button_pressed)
 
 
@@ -62,4 +67,5 @@ func _on_sfxSlide_value_changed(value):
 	GlobalSettings.update_sfx_vol(value)
 
 func _on_deleteData_pressed():
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/delete/deleteScene.tscn")

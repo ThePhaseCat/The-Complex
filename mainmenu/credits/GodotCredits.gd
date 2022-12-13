@@ -52,9 +52,18 @@ var credits = [
 		"Licensed under Creative Commons: By Attribution 4.0 License",
 		"http://creativecommons.org/licenses/by/4.0/",
 		"",
+		"Tower Defense Loop by DST",
+		"https://opengameart.org/users/dst",
+		"",
 		"'Rising Game' Kevin MacLeod (incompetech.com)",
 		"Licensed under Creative Commons: By Attribution 4.0 License",
 		"http://creativecommons.org/licenses/by/4.0/",
+		"",
+		"Shadow Military by Fato_Shadow",
+		"https://opengameart.org/users/fatoshadow",
+		"",
+		"Space Music by MrPoly",
+		"https://opengameart.org/users/mrpoly",
 		""
 	],[
 		"Sound Effects",
@@ -79,9 +88,8 @@ var credits = [
 		"https://www.youtube.com/c/EliCuaycong"
 	],[
 		"Special thanks to:",
-		"My parents",
-		"My friends",
-		"My pet rabbit"
+		"Rainy <3",
+		"All the people who follow me onine!"
 	]
 ]
 
