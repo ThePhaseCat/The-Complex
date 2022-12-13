@@ -36,29 +36,47 @@ var credits = [
 		"https://opengameart.org/users/stagnation",
 		"",
 		"Key Sprite made by BizmasterStudios",
-		"https://opengameart.org/content/key-icons"
+		"https://opengameart.org/users/bizmasterstudios"
 	],[
 		"Music",
-		"Musician Name"
+		"",
+		"'The Complex' Kevin MacLeod (incompetech.com)",
+		"Licensed under Creative Commons: By Attribution 4.0 License",
+		"http://creativecommons.org/licenses/by/4.0/",
+		"",
+		"'Big Mojo' Kevin MacLeod (incompetech.com)",
+		"Licensed under Creative Commons: By Attribution 4.0 License",
+		"http://creativecommons.org/licenses/by/4.0/",
+		"",
+		"'Truth of the Legend' Kevin MacLeod (incompetech.com)",
+		"Licensed under Creative Commons: By Attribution 4.0 License",
+		"http://creativecommons.org/licenses/by/4.0/",
+		"",
+		"'Rising Game' Kevin MacLeod (incompetech.com)",
+		"Licensed under Creative Commons: By Attribution 4.0 License",
+		"http://creativecommons.org/licenses/by/4.0/",
+		""
 	],[
 		"Sound Effects",
+		"",
+		"Footstep sound made by congusbongus",
+		"https://opengameart.org/users/congusbongus",
+		"",
+		"Menu sound made by Mobeyee Sounds",
+		"https://opengameart.org/users/mobeyee-sounds",
+		"",
 		"Gun sounds from Pixabay",
 		"https://pixabay.com/"
 	],[
 		"Testers",
-		"Name 1",
-		"Name 2",
-		"Name 3"
+		"TO BE ADDED"
 	],[
 		"Tools used",
 		"Developed with the Godot Engine",
 		"https://godotengine.org/license",
 		"",
 		"Game base created by Eli Cuaycong",
-		"https://www.youtube.com/c/EliCuaycong",
-		"",
-		"Art created with My Favourite Art Program",
-		"https://myfavouriteartprogram.com"
+		"https://www.youtube.com/c/EliCuaycong"
 	],[
 		"Special thanks to:",
 		"My parents",

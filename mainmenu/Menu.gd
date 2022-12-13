@@ -23,16 +23,20 @@ func _ready():
 	GlobalSettings.update_sfx_vol(Save.game_data.sfx_vol)
 
 func _on_StartButton_pressed():
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
 
 
 func _on_OptionsButton_pressed():
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/options/Options.tscn")
 
 
 func _on_QuitButton_pressed():
+	ClickSound.play()
 	get_tree().quit()
 
 
 func _on_CreditsButton_pressed():
+	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/credits/GodotCredits.tscn")
