@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://hurtStuff/SpikeAlwaysUp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://teleport.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://hurtStuff/HealthBox2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.png" type="Texture" id=7]
 [ext_resource path="res://hurtStuff/Spikes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://mainmenu/TEXT.tres" type="Theme" id=9]
 
 [node name="level1" type="Node2D"]
 
@@ -116,66 +117,16 @@ position = Vector2( 568, 1032 )
 [node name="gunTurret4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 568, 1144 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = -208.0
-margin_top = 336.0
-margin_right = -87.0
-margin_bottom = 367.0
-text = "Make sure to avoid
-the spikes!"
-align = 1
-
-[node name="Label2" type="Label" parent="."]
-margin_left = 280.0
-margin_top = 608.0
-margin_right = 401.0
-margin_bottom = 639.0
-text = "These ones
-are always
-active!"
-align = 1
-
-[node name="Label3" type="Label" parent="."]
-margin_left = -48.0
-margin_top = 824.0
-margin_right = 111.0
-margin_bottom = 889.0
-text = "Turrets will always
-fire at you.
-There's ways
-to avoid them..."
-align = 1
-
-[node name="Label4" type="Label" parent="."]
-margin_left = 480.0
-margin_top = 952.0
-margin_right = 642.0
-margin_bottom = 1017.0
-text = "Sometimes, the best way
-to survive is to
-run!"
-align = 1
-
-[node name="Label5" type="Label" parent="."]
-margin_left = 776.0
-margin_top = 1160.0
-margin_right = 949.0
-margin_bottom = 1225.0
-text = "Here's a health pack!
-It heals you back to
-full health, no matter what!"
-align = 1
-
-[node name="Label6" type="Label" parent="."]
-margin_left = 816.0
-margin_top = 1432.0
-margin_right = 1003.0
-margin_bottom = 1497.0
-text = "An exit?
-Let's get out of this Complex!"
-align = 1
-
 [node name="HealthBox" parent="." instance=ExtResource( 6 )]
 position = Vector2( 720, 1280 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0.14902, 1, 0, 1 )
+margin_left = -296.0
+margin_top = 40.0
+margin_right = -80.0
+margin_bottom = 176.0
+theme = ExtResource( 9 )
+text = "WASD to Move"

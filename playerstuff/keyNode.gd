@@ -8,6 +8,7 @@ func _on_Area2D_body_entered(body):
 		if (GlobalSettings.keyHave==false):
 			GlobalSettings.keyHave = true
 			yield(get_tree().create_timer(0.1), "timeout")
+			print("keygot")
 			queue_free()
 		if (GlobalSettings.keyHave==true):
 			pass
