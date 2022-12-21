@@ -78,7 +78,12 @@ var credits = [
 		"https://pixabay.com/"
 	],[
 		"Testers",
-		"TO BE ADDED"
+		"",
+		"THANK YOU TO EVERYONE THAT HELPED TEST THE GAME",
+		"",
+		"trainb0y",
+		"Elan",
+		"Rainy <3"
 	],[
 		"Tools used",
 		"Developed with the Godot Engine",

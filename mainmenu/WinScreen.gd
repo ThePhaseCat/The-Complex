@@ -14,7 +14,7 @@ func _on_QuitButton_pressed():
 	
 	Save.save_data()
 	ClickSound.play()
-	get_tree().change_scene("res://mainmenu/Menu.tscn")
+	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
 
 
 func _on_RetryButton_pressed():

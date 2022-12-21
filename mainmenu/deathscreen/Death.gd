@@ -12,7 +12,7 @@ func _on_QuitButton_pressed():
 	Level4Music.stop()
 	Level5Music.stop()
 	Level6Music.stop()
-	get_tree().change_scene("res://mainmenu/Menu.tscn")
+	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
 
 
 func _on_RetryButton_pressed():

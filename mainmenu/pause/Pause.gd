@@ -27,7 +27,7 @@ func _on_QuitButton_pressed():
 	Level6Music.stop()
 	get_tree().paused = false
 	ClickSound.play()
-	get_tree().change_scene("res://mainmenu/Menu.tscn")
+	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
 
 
 func _on_RetryButtom_pressed():

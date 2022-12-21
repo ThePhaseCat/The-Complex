@@ -103,7 +103,7 @@ margin_top = -20.0
 margin_right = 1024.0
 margin_bottom = 18.0
 theme = ExtResource( 3 )
-text = "Quit"
+text = "Back to Main Menu"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 0.5
