@@ -153,7 +153,7 @@ func _on_Area2D_body_entered(body):
 		health_change(10)
 		hit_flash()
 	if "EnemyGunStuff" in body.name:
-		health_change(50)
+		health_change(35)
 		hit_flash()
 	if "EnemyTeleportStuff" in body.name:
 		health_change(15)

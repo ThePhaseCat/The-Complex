@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var motion = Vector2()
 var speed = 0
-var bulletSpeed = 750
+var bulletSpeed = 600
 
 var bulletAttack = preload("res://EnemyGunStuff.tscn")
 
