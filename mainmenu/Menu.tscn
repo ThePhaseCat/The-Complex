@@ -46,12 +46,12 @@ text = "Quit"
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -464.0
+margin_left = -536.0
 margin_bottom = 71.0
 theme = ExtResource( 3 )
 custom_colors/default_color = Color( 0.054902, 1, 0, 1 )
 tab_size = 10
-text = "ALPHA BUILD"
+text = "TESTING BUILD"
 
 [node name="bg" type="Sprite" parent="."]
 modulate = Color( 0.298039, 0.196078, 0.196078, 1 )

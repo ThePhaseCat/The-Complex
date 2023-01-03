@@ -37,6 +37,10 @@ func _ready():
 	emit_signal("set_health", health)
 	GlobalSettings.deathSpike = false
 	GlobalSettings.keyHave = false
+	if (GlobalSettings.aimShow == true):
+		$aim.show()
+	if (GlobalSettings.aimShow == false):
+		$aim.hide()
 
 func _physics_process(delta):
 	moveCheck()

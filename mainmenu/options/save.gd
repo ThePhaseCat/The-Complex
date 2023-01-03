@@ -1,6 +1,6 @@
 extends Node
 
-const SAVEFILE = "user://SAVEFILE.save"
+const SAVEFILE = "user://SAVEFILEv2.save"
 
 var game_data = {}
 var level_data = {}
@@ -17,6 +17,7 @@ func load_data():
 			"borderless": false,
 			"vsync": false,
 			"display_fps": true,
+			"aimBox": true,
 			"fps_cap": 60,
 			"master_vol": -10,
 			"music_vol": -10,

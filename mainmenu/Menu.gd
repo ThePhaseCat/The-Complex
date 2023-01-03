@@ -21,6 +21,7 @@ func _ready():
 	GlobalSettings.update_master_vol(Save.game_data.master_vol)
 	GlobalSettings.update_music_vol(Save.game_data.music_vol)
 	GlobalSettings.update_sfx_vol(Save.game_data.sfx_vol)
+	GlobalSettings.toggle_aim(Save.game_data.aimBox)
 
 func _on_StartButton_pressed():
 	ClickSound.play()
