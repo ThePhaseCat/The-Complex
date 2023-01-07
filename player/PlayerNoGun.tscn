@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/PlayerNoGun.gd" type="Script" id=1]
 [ext_resource path="res://spotlight.png" type="Texture" id=2]
 [ext_resource path="res://Player.png" type="Texture" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://particles/enemydefeatring.tscn" type="PackedScene" id=5]
+[ext_resource path="res://playerstuff/scale.tres" type="Animation" id=6]
 [ext_resource path="res://audio/footsteps.ogg" type="AudioStream" id=7]
 [ext_resource path="res://sprites/KeyIcons.png" type="Texture" id=8]
 [ext_resource path="res://audio/ak_gun_sound.wav" type="AudioStream" id=9]
 [ext_resource path="res://audio/smg_gun_sound.wav" type="AudioStream" id=10]
-[ext_resource path="res://playerstuff/player.tres" type="Animation" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -59,7 +60,7 @@ shadow_enabled = true
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="scaleAni" type="AnimationPlayer" parent="."]
-anims/RESET = ExtResource( 11 )
+anims/RESET = ExtResource( 6 )
 anims/scale = SubResource( 4 )
 
 [node name="walksound" type="AudioStreamPlayer2D" parent="."]
@@ -79,6 +80,10 @@ bus = "SFX"
 [node name="ak_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 bus = "SFX"
+
+[node name="enemydefeatring" parent="." instance=ExtResource( 5 )]
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="died" from="." to="HUD" method="_on_Player_died"]
 [connection signal="health_heal" from="." to="HUD" method="_on_Player_health_heal"]

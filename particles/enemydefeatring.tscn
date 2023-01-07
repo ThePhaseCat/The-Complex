@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0, 1, 0.421129, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+angular_velocity = 28.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 1.0
+damping = 22.0
+angle = 45.0
+angle_random = 1.0
+color_ramp = SubResource( 2 )
+
+[node name="enemydefeatring" type="Particles2D"]
+amount = 20
+lifetime = 1.6
+preprocess = 0.25
+speed_scale = 1.25
+explosiveness = 1.0
+process_material = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+rotation = 1.5708
+amount = 20
+lifetime = 1.6
+preprocess = 0.25
+speed_scale = 1.25
+explosiveness = 1.0
+process_material = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+rotation = 3.14159
+amount = 20
+lifetime = 1.6
+preprocess = 0.25
+speed_scale = 1.25
+explosiveness = 1.0
+process_material = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Particles2D3" type="Particles2D" parent="."]
+rotation = 4.71239
+amount = 20
+lifetime = 1.6
+preprocess = 0.25
+speed_scale = 1.25
+explosiveness = 1.0
+process_material = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}

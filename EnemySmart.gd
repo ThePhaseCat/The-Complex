@@ -6,6 +6,7 @@ var health = 75
 
 func _ready():
 	$Sprite.hide()
+	$enemydefeatring.hide()
 	set_physics_process(false)
 
 
@@ -22,10 +23,21 @@ func _physics_process(delta):
 func health_change():
 	health = health - 25
 
+func kill():
+	$enemydefeatring.show()
+	set_physics_process(false)
+	$Tween.stop_all()
+	$Tween.interpolate_property($Sprite,'modulate:a',$Sprite.get_modulate().a, 0.0,0.25,Tween.TRANS_SINE,Tween.EASE_OUT)
+	$Tween.start()
+	yield($Tween, 'tween_completed')
+	queue_free()
+	
+	
+
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
 		if health <= 0:
-			queue_free()
+			kill()
 		else:
 			health_change()
 			speed = 0

@@ -34,6 +34,7 @@ func _ready():
 	emit_signal("startTimer")
 	$gun1.show()
 	$key.hide()
+	$enemydefeatring.hide()
 	emit_signal("set_health", health)
 	GlobalSettings.deathSpike = false
 	GlobalSettings.keyHave = false
@@ -140,10 +141,13 @@ func sound2():
 
 func kill():
 	$walksound.stop()
+	$enemydefeatring.show()
 	emit_signal("stopTimer")
 	set_physics_process(false)
-	$scaleAni.play("scale")
-	yield(get_tree().create_timer(1.0), "timeout")
+	$Tween.stop_all()
+	$Tween.interpolate_property($Sprite,'modulate:a',$Sprite.get_modulate().a, 0.0,1,Tween.TRANS_SINE,Tween.EASE_OUT)
+	$Tween.start()
+	yield($Tween, 'tween_completed')
 	emit_signal("died")
 	#get_tree().reload_current_scene()
 

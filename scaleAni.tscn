@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://playerstuff/player.tres" type="Animation" id=1]
+
+[sub_resource type="Animation" id=4]
+resource_name = "scale"
+step = 0.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[node name="scaleAni" type="AnimationPlayer"]
+anims/RESET = ExtResource( 1 )
+anims/scale = SubResource( 4 )
