@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=1]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.780645 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.846676, 0, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=4]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -190.425 ), 0.0, 0.0, 0, 0, Vector2( 0.286517, 155.029 ), 172.606, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.1
+linear_accel_curve = SubResource( 5 )
+angle = 45.0
+angle_random = 1.0
+color_ramp = SubResource( 2 )
+
+[node name="enemyaboutto" type="Particles2D"]
+amount = 100
+lifetime = 0.5
+preprocess = 0.25
+explosiveness = 1.0
+process_material = SubResource( 3 )

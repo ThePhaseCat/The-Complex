@@ -7,9 +7,12 @@ var bulletSpeed = 600
 var bulletAttack = preload("res://EnemyGunStuff.tscn")
 
 var _timer = null
+var pTime = null
 
 func _ready():
 	$Sprite.hide()
+	$enemydefeatring.hide()
+	$enemyaboutto.hide()
 	set_physics_process(true)
 	_timer = Timer.new()
 	add_child(_timer)
@@ -17,9 +20,23 @@ func _ready():
 	_timer.set_wait_time(1.2)
 	_timer.set_one_shot(false) # Make sure it loops
 	_timer.stop()
+	pTime = Timer.new()
+	add_child(pTime)
+	pTime.connect("timeout", self, "pTimeout")
+	pTime.set_wait_time(0.6)
+	pTime.set_one_shot(false) # Make sure it loops
+	pTime.start()
+	pTime.stop()
 
 func _on_Timer_timeout():
 	fire()
+	pTime.start()
+
+func pTimeout():
+	$enemyaboutto.show()
+	pTime.stop()
+	yield(get_tree().create_timer(0.5), "timeout")
+	$enemyaboutto.hide()
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -42,7 +59,13 @@ func fire():
 
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
-			queue_free()
+		$enemydefeatring.show()
+		set_physics_process(false)
+		$Tween.stop_all()
+		$Tween.interpolate_property($Sprite,'modulate:a',$Sprite.get_modulate().a, 0.0,0.25,Tween.TRANS_SINE,Tween.EASE_OUT)
+		$Tween.start()
+		yield($Tween, 'tween_completed')
+		queue_free()
 
 
 func _on_PlayerDetectArea_body_entered(body):
@@ -59,12 +82,14 @@ func _on_PlayerDetectArea_body_exited(body):
 func _on_PlayerShootingRange_body_entered(body):
 	if "Player" in body.name:
 		_timer.start()
+		pTime.start()
 		print("In range for shooting")
 
 
 func _on_PlayerShootingRange_body_exited(body):
 	if "Player" in body.name:
 		_timer.stop()
+		pTime.stop()
 		print("Left shooting range")
 
 

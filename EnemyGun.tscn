@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://EnemyGun.gd" type="Script" id=1]
 [ext_resource path="res://sprites/enemey_gun.png" type="Texture" id=2]
+[ext_resource path="res://particles/enemydefeatring.tscn" type="PackedScene" id=3]
+[ext_resource path="res://particles/enemyaboutto.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 7 )
@@ -47,6 +49,12 @@ shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeginMoveArea"]
 shape = SubResource( 5 )
+
+[node name="enemyaboutto" parent="." instance=ExtResource( 4 )]
+
+[node name="enemydefeatring" parent="." instance=ExtResource( 3 )]
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="PlayerDetectArea" to="." method="_on_PlayerDetectArea_body_entered"]

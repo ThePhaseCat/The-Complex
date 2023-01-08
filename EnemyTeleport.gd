@@ -8,6 +8,7 @@ var bulletAttack = preload("res://EnemyTeleportStuff.tscn")
 
 var _timer = null
 var teleTime = null
+var pTime = null
 
 var randomX = 0
 var randomY = 0
@@ -16,6 +17,8 @@ var random = false
 
 func _ready():
 	$Sprite.hide()
+	$enemyaboutto.hide()
+	$enemydefeatring.hide()
 	set_physics_process(true)
 	_timer = Timer.new()
 	add_child(_timer)
@@ -32,9 +35,24 @@ func _ready():
 	teleTime.set_one_shot(false)
 	teleTime.start()
 	teleTime.stop()
+	
+	pTime = Timer.new()
+	add_child(pTime)
+	pTime.connect("timeout", self, "pTimeout")
+	pTime.set_wait_time(0.5)
+	pTime.set_one_shot(false) # Make sure it loops
+	pTime.start()
+	pTime.stop()
 
 func _on_Timer_timeout():
 	fire()
+	pTime.start()
+
+func pTimeout():
+	$enemyaboutto.show()
+	pTime.stop()
+	yield(get_tree().create_timer(0.5), "timeout")
+	$enemyaboutto.hide()
 
 func _on_teleTime_timeout():
 	var random = RandomNumberGenerator.new()
@@ -54,7 +72,6 @@ func _on_teleTime_timeout():
 func _physics_process(delta):
 	var motion = Vector2()
 	var Player = get_parent().get_node("Player")
-
 	look_at(Player.position)
 
 
@@ -69,6 +86,12 @@ func fire():
 
 func _on_Area2D_body_entered(body):
 	if "Bullet" in body.name:
+		$enemydefeatring.show()
+		set_physics_process(false)
+		$Tween.stop_all()
+		$Tween.interpolate_property($Sprite,'modulate:a',$Sprite.get_modulate().a, 0.0,0.25,Tween.TRANS_SINE,Tween.EASE_OUT)
+		$Tween.start()
+		yield($Tween, 'tween_completed')
 		queue_free()
 
 func _on_PlayerDetectArea_body_entered(body):
@@ -76,9 +99,11 @@ func _on_PlayerDetectArea_body_entered(body):
 		$Sprite.show()
 		teleTime.start()
 		_timer.start()
+		pTime.start()
 
 func _on_PlayerDetectArea_body_exited(body):
 	if "Player" in body.name:
 		$Sprite.hide()
 		teleTime.stop()
 		_timer.stop()
+		pTime.stop()
