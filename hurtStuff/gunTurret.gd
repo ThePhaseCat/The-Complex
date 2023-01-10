@@ -37,7 +37,7 @@ func _on_Timer_timeout():
 func pTimeout():
 	$enemyaboutto.show()
 	pTime.stop()
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(0.3), "timeout")
 	$enemyaboutto.hide()
 
 func _physics_process(delta):

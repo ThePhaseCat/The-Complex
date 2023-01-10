@@ -7,6 +7,7 @@ var health = 75
 func _ready():
 	$Sprite.hide()
 	$enemydefeatring.hide()
+	$enemyaboutto.hide()
 	set_physics_process(false)
 
 
@@ -46,7 +47,10 @@ func _on_Area2D_body_entered(body):
 
 func _on_StealhDetectArea_body_entered(body):
 	if "Player" in body.name:
-		yield(get_tree().create_timer(1.0), "timeout")
+		$enemyaboutto.show()
+		yield(get_tree().create_timer(0.5), "timeout")
+		$enemyaboutto.hide()
+		yield(get_tree().create_timer(0.5), "timeout")
 		set_physics_process(true)
 
 

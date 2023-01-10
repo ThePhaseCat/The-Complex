@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://mainmenu/WinScreen.gd" type="Script" id=1]
 [ext_resource path="res://mainmenu/TEXTsmall.tres" type="Theme" id=2]
+[ext_resource path="res://sprites/320140.png" type="Texture" id=3]
+[ext_resource path="res://sprites/pauseexitnotselect.png" type="Texture" id=4]
 
 [node name="WinScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -27,9 +29,10 @@ margin_right = 59.5
 margin_bottom = 34.0
 theme = ExtResource( 2 )
 
-[node name="QuitButton" type="Button" parent="Death/VBoxContainer"]
-margin_right = 119.0
-margin_bottom = 18.0
-text = "Exit Level"
+[node name="QuitButton" type="TextureButton" parent="Death/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
 
 [connection signal="pressed" from="Death/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

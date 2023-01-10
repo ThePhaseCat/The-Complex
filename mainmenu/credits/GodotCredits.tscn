@@ -13,15 +13,14 @@ margin_bottom = 1080.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="CreditsContainer" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
 [node name="Line" type="Label" parent="CreditsContainer"]
-anchor_right = 1.0
-margin_top = 1080.0
-margin_bottom = 1094.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 1024.0
 size_flags_horizontal = 3
 text = "Credits line"
 align = 1

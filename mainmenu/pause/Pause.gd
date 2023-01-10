@@ -29,8 +29,7 @@ func _on_QuitButton_pressed():
 	ClickSound.play()
 	get_tree().change_scene("res://mainmenu/levelselect/levelSelectHUD.tscn")
 
-
-func _on_RetryButtom_pressed():
+func _on_RetryButton_pressed():
 	visible = false
 	get_tree().paused = false
 	ClickSound.play()

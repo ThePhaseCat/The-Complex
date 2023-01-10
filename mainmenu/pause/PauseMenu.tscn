@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://mainmenu/pause/Pause.gd" type="Script" id=1]
-[ext_resource path="res://mainmenu/TEXTsmall.tres" type="Theme" id=2]
+[ext_resource path="res://sprites/restartnotselected.png" type="Texture" id=3]
+[ext_resource path="res://sprites/playpausenotselect.png" type="Texture" id=4]
+[ext_resource path="res://sprites/320140.png" type="Texture" id=5]
+[ext_resource path="res://sprites/375.png" type="Texture" id=6]
+[ext_resource path="res://sprites/pauseexitnotselect.png" type="Texture" id=7]
+[ext_resource path="res://sprites/restartnoselect.png" type="Texture" id=8]
 
 [node name="PauseMenu" type="CanvasLayer"]
 
@@ -16,34 +21,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.352941 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -46.5
-margin_top = -34.0
-margin_right = 46.5
-margin_bottom = 34.0
-theme = ExtResource( 2 )
+margin_left = -196.0
+margin_top = -64.0
+margin_right = 196.0
+margin_bottom = 64.0
 
-[node name="ResumeButton" type="Button" parent="Pause/VBoxContainer"]
-margin_right = 93.0
-margin_bottom = 18.0
-text = "Resume"
+[node name="ResumeButton" type="TextureButton" parent="Pause/HBoxContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
 
-[node name="RetryButtom" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 22.0
-margin_right = 93.0
-margin_bottom = 40.0
-text = "Restart"
+[node name="RetryButton" type="TextureButton" parent="Pause/HBoxContainer"]
+margin_left = 132.0
+margin_right = 260.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 3 )
 
-[node name="QuitButton" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 44.0
-margin_right = 93.0
-margin_bottom = 62.0
-text = "Quit"
+[node name="QuitButton" type="TextureButton" parent="Pause/HBoxContainer"]
+margin_left = 264.0
+margin_right = 392.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
 
-[connection signal="pressed" from="Pause/VBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="Pause/VBoxContainer/RetryButtom" to="Pause" method="_on_RetryButtom_pressed"]
-[connection signal="pressed" from="Pause/VBoxContainer/QuitButton" to="Pause" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Pause/HBoxContainer/ResumeButton" to="Pause" method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="Pause/HBoxContainer/RetryButton" to="Pause" method="_on_RetryButton_pressed"]
+[connection signal="pressed" from="Pause/HBoxContainer/QuitButton" to="Pause" method="_on_QuitButton_pressed"]

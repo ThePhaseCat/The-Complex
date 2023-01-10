@@ -12,7 +12,6 @@ func _ready():
 		MainMenuMusic.play()
 	if (MainMenuMusic.playing == true):
 		pass
-	$VBoxContainer/StartButton.grab_focus()
 	GlobalSettings.toggle_borderless(Save.game_data.borderless) 
 	GlobalSettings.toggle_fullscreen(Save.game_data.fullscreen)
 	GlobalSettings.toggle_vsync(Save.game_data.vsync) 
