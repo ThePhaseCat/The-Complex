@@ -73,6 +73,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("weapon 1"):
 		weapon_select = 1
+		GlobalSettings.weaponNumber = 1
 		$gun1.show()
 	#if Input.is_action_just_pressed("weapon 2"):
 #		weapon_select = 2

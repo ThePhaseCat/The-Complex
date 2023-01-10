@@ -8,6 +8,7 @@ var current_level = "n/a"
 var deathSpike = false
 var keyHave = false
 var wallCharge = false
+var weaponNumber = 1
 
 func toggle_fullscreen(value):
 	OS.window_fullscreen = value

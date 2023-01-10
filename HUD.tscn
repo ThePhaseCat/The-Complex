@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://HealthBar.tscn" type="PackedScene" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://hud/Timer.gd" type="Script" id=6]
 [ext_resource path="res://mainmenu/WinScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mainmenu/TEXTsmall.tres" type="Theme" id=8]
+[ext_resource path="res://hud/WeaponUI.tscn" type="PackedScene" id=9]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="WeaponUI" parent="." instance=ExtResource( 9 )]
 
 [node name="HealthBar" parent="." instance=ExtResource( 2 )]
 
